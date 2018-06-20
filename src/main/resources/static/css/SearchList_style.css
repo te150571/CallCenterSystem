@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+th{
+    font-size:24px;
+}
+
+input{
+    height: 20px;
+    position: relative;
+    bottom: 5px;
+}
+.box_size{
+     width: 560px;
+}
+
+table{
+    width: 700px;
+    height: 60px;
+}
+
+
+tr{
+}

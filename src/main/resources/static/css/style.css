@@ -12,12 +12,21 @@ body{
     height: 150px;
 }
 
+.id_position{
+    margin:0px;
+    position: relative;
+    right:-450px;
+    margin: 0 auto;
+    top: -50px;
+    width: 300px;
+
+    font-weight:bold;
+}
+
 h2{
     color:white;
     font-weight: bold; /*フォントの太さ*/
     text-shadow: 3px 3px 2px gray;  /*影*/
-
-
     
     margin:0px;
     font-size:38px;

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<title>ログイン</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.mincss" th:href="@{/webjars/bootstrap/3.3.7/bootstrap-theme.min.css}" />
+    <link rel="stylesheet" href="../../static/css/style.css" />
+    <link rel="stylesheet" href="../../static/css/login_style.css"/>
+	<style>
+		
+	</style>
+</head>
+<body>
+    <div class="gradation">
+			<h2>コールセンター顧客管理システム</h2>
+	</div>
+	<div class="main_screen">
+    	
+		<form class="login_form" method="post" th:action="@{/login}" >
+		<p><b>社員ID</b></p>
+		<input type="text" class="form-control" name="username" placeholder="Username" required="required" autofocus="autofocus" />
+		<br>
+		<p><b>パスワード</b></p>
+		<input type="password" class="form-control" name="password" placeholder="Password" required="required">
+		<br>
+    	<input class="parts-right" type="submit" value="ログイン">
+    	<br>
+    	<br>
+    	<div th:if="${param.error}" class="alert alert-danger">
+			IDとパスワードが違います。
+			<div class="miss_count">回目</div>
+    	</div>
+    </div>
+</body>
+</html>

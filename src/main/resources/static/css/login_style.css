@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.parts-right{
+	float:right;
+	margin-right: 390px;
+}
+.form-control{
+	width: 300px;
+	margin: 0 auto;
+}
+.alert{
+	width: 300px;
+	margin: 0 auto;
+}

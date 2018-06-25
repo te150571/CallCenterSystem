@@ -19,7 +19,6 @@ body{
     margin: 0 auto;
     top: -50px;
     width: 300px;
-
     font-weight:bold;
 }
 
@@ -27,7 +26,6 @@ h2{
     color:white;
     font-weight: bold; /*フォントの太さ*/
     text-shadow: 3px 3px 2px gray;  /*影*/
-    
     margin:0px;
     font-size:38px;
     position: relative;
@@ -39,5 +37,4 @@ h2{
     text-align: center;
     margin: 0 auto;
     width: 1080px;
-
 }

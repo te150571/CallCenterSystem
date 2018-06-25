@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+a{
+    text-decoration: none;
+}
+
+.registration_button{
+    font-size: 17px;
+    position: relative;
+    top:25px;
+    left: 230px;
+    width: auto;
+    height: 30px;
+}
+
+
 .main_screen{
     position: absolute;
     left: 0;
@@ -18,7 +32,7 @@ input{
 }
 
 .box_size{
-    width: 550px;
+    width: 390px;
 }
 
 #search_table{
@@ -32,7 +46,13 @@ input{
     height: 60px;
 }
 
-.button{
+.button_position{
+    position: relative;
+    top: 5px;
+    left: 250px;
+}
+
+.search_button{
     font-size: 18px;
     width: auto;
     height: 30px;
@@ -41,9 +61,12 @@ input{
 
 .result_list{
     position: absolute;
-    top: 180px;
+    top: 190px;
 
-    text-align: center;
+}
+
+.result_user_list{
+    font-size:18px;
 }
 
 .name_width{
@@ -51,9 +74,13 @@ input{
 }
 
 .call_width{
-    width: 200px;
+    width: 230px;
 }
 
 .address_width{
-    width: 450px;
+    width: 420px;
+
 }
+
+
+

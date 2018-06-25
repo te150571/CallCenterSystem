@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+a{
+    text-decoration: none;
+}
+
+.registration_button{
+    font-size: 17px;
+    position: relative;
+    top:25px;
+    left: 230px;
+    width: auto;
+    height: 30px;
+}
+
+
+.main_screen{
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+th{
+    width:180px;
+    font-size:24px;
+}
+
+input{
+    height: 20px;
+    position: relative;
+    bottom: 5px;
+}
+
+.box_size{
+    width: 390px;
+}
+
+#search_table{
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    margin:auto;
+    width: 700px;
+    height: 60px;
+}
+
+.button_position{
+    position: relative;
+    top: 5px;
+    left: 250px;
+}
+
+.search_button{
+    font-size: 18px;
+    width: auto;
+    height: 30px;
+}
+
+
+.result_list{
+    position: absolute;
+    top: 190px;
+}
+
+.result_user_list{
+    font-size:18px;
+}
+
+.name_width{
+    width: 150px;
+}
+
+.call_width{
+    width: 230px;
+}
+
+.address_width{
+    width: 420px;
+}

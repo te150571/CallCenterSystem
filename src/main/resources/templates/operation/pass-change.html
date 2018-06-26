@@ -16,8 +16,9 @@
             <h2>コールセンター顧客管理システム</h2>
     </div>
     <div class="main_screen">
+        <div class="rule line">
         <div th:if="${param.error}" class="alert alert-danger">
-       	パスワードが違います。
+       	〇〇のパスワードが違います。
        	</div>
        	<br>
         <form class="login_form" method="post" th:action="@{/login}" >
@@ -30,7 +31,9 @@
         <p><b>確認</b></p>
         <input type="password" class="form-control" name="new_password_check" placeholder="Check Password" required="required">
         <br>
-       <input class="parts-right" type="submit" value="ログイン">
+       <input class="change_button btn" type="submit" value="変更">
+       </form>
+       </div>
    </div>
 </body>
 </html>

@@ -1,29 +1,29 @@
 @charset "UTF-8";
 
-.parts{
+.parts {
+    position: relative;
     display: inline-block;
-    padding: 0.5em 1em;
+    padding: 0.25em 0.5em;
     text-decoration: none;
-    background:  #31d6ff;/*ボタン色*/
     color: #FFF;
-    border-bottom: solid 4px #9cb5c0;
-	border-radius: 10px;
-	
-	font-weight:bold;
-
+    background:-webkit-linear-gradient(bottom, #0084fffd, #0084ffa2);/*色*/
+    border-radius: 8px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(160, 160, 160, 0.2), inset 0 -2px 0 rgba(29, 29, 29, 0.05);
+    font-weight: bold;
+    border: solid 2px -webkit-linear-gradient(bottom, #0084fffd, #0084ffa2);/*線色*/
+    
     width: 300px;
-    margin-top:5px;
+    height: 35px;
 }
-.parts:active {/*ボタンを押したとき*/
-    -ms-transform: translateY(4px);
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);/*下に動く*/
-    border-bottom: none;/*線を消す*/
+
+.parts:active {/*押したとき*/
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
+
 .parts:hover{
-    background:  #88daff;/*ボタン色*/
-    border-bottom: solid 4px #9cb5c0;
+    background:  #65b3fcfd;/*ボタン色*/
 }
+
 .form-control{
 	width: 300px;
     margin: 0 auto;
@@ -37,7 +37,7 @@
     border-style:solid;
     width:400px;
     height:350px;
-    border-color: rgb(177, 177, 177);
+    border-color: rgb(216, 216, 216);
     border-width: 2px;
     
     padding-top:30px;
@@ -49,5 +49,4 @@
     right: 0;
     bottom: 0;
     margin: auto;
-     
 }

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8" />
+    <title>初回パスワード変更</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.mincss" th:href="@{/webjars/bootstrap/3.3.7/bootstrap-theme.min.css}" />
+    <link rel="stylesheet" type="text/css" href="../../static/css/Password_Change_style.css" />
+    <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+    <style>
+        
+    </style>
+</head>
+<body>
+   <div class="gradation">
+            <h2>コールセンター顧客管理システム</h2>
+    </div>
+    <div class="main_screen">
+        <div th:if="${param.error}" class="alert alert-danger">
+       	パスワードが違います。
+       	</div>
+       	<br>
+        <form class="login_form" method="post" th:action="@{/login}" >
+        <p><b>現在のパスワード</b></p>
+        <input type="text" class="form-control" name="password" placeholder="Password" required="required" autofocus="autofocus" />
+        <br>
+        <p><b>新しいパスワード</b></p>
+        <input type="password" class="form-control" name="new_password" placeholder="New Password" required="required">
+        <br>
+        <p><b>確認</b></p>
+        <input type="password" class="form-control" name="new_password_check" placeholder="Check Password" required="required">
+        <br>
+       <input class="parts-right" type="submit" value="ログイン">
+   </div>
+</body>
+</html>

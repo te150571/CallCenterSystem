@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.place{
+	    margin: 0 auto;
+	    width:	0 auto;
+	    padding: 300px;
+}
+
+.rap{
+		white-space: nowrap;
+}
+
+.p{
+	width:500px;
+	margin: 0 auto;
+}

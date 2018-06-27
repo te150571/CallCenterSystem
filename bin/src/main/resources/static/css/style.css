@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+body{
+    overflow: hidden;
+    font-family: "Meiryo", sans-serif;
+    margin: 0px;
+}
+
+.gradation{
+    margin: 0px;
+    background:-webkit-linear-gradient(top, #00bfff, #FFF);
+    height: 150px;
+}
+
+.id_position{
+    margin:0px;
+    position: relative;
+    right:-450px;
+    margin: 0 auto;
+    top: -50px;
+    width: 300px;
+    font-weight:bold;
+}
+
+h2{
+    color:white;
+    font-weight: bold; /*フォントの太さ*/
+    text-shadow: 3px 3px 2px gray;  /*影*/
+    margin:0px;
+    font-size:38px;
+    position: relative;
+    top:30px;
+    left:24px
+}
+
+.main_screen{
+    text-align: center;
+    margin: 0 auto;
+    width: 1080px;
+}

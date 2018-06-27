@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>コールセンター顧客管理システム</title>
+<link href="../../static/css/style.css" rel="stylesheet" type="text/css">
+<link href="../../static/css/SearchList_style.css" rel="stylesheet" type="text/css">
+<!---->
+
+
+</head>
+<body>
+    <div class="gradation">
+        <h2>コールセンター顧客管理システム</h2>
+        <div class="id_position">
+            <span id="loggedas">ログイン中： <a id="user_id" href="">00000000<!--ユーザID--></a></sapn>
+            <span><a class="logout" rel="nofollow" data-method="post" href="">ログアウト</a></span>
+        </div>
+    </div>
+    
+
+
+    <div class="main_screen">
+        <div>  <a class="registration_button" href=""><img src="../../static/img/add.png"> 新規顧客登録</a></div>
+        <div id="search_table">
+            <table >
+                <tr><th>氏名</th><th colspan="2"><input type="text" class="box_size"> <!--氏名--></th></tr>
+                <tr><th>電話番号</th><th colspan="2"><input type="text" class="box_size"> <!--電話番号--></th></tr>
+                <tr><th>住所</th><th colspan="2"><input type="text" class="box_size"> <!--住所--></th>
+                
+                <tr><th colspan="2" class="button_position"><span><input type="submit" value="検索" class="search_button"></span></th></tr>
+            </table>
+
+            <!-- 「氏名・電話番号・住所」を表示 -->
+            <table class="result_list"  rules="all">
+                <tr>
+                    <th class="name_width">氏名</th>
+                    <th class="call_width">電話番号</th>
+                    <th class="address_width ">住所</th>
+                </tr>
+
+				<div id="search_result"></div>
+                <!-- 例 -->
+                <!-- 
+                <tr>
+                    <th class="result_user_list name_width"><a href="">青葉　好美</a></th>
+                    <th class="result_user_list call_width">022-224-6501</th>
+                    <th class="result_user_list address_width">宮城県仙台市青葉区花京院1丁目3-1</th>
+                </tr>
+                -->
+                <!--  -->
+            </table>
+        </div>
+    </div>
+</body>
+</html>

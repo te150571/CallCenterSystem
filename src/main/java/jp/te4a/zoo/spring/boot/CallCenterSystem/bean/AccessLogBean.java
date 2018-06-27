@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 
 /*
  * アクセスログデータベースBean
- * 
  */
 
 @Data

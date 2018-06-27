@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザ登録画面</title>
+<link rel="stylesheet" type="text/css" href="../../static/css/style.css" th:href="@{/css/style.css}" />
+</head>
+<body>
+	<form th:action="@{/user_test/create}" th:object="${systemUserForm}" method="post">
+		<table>
+			<tr>
+				<td>User ID:</td>
+				<td>
+					<input type="text" name="username" th:field="*{username}" th:errorclass="error-input" />
+					<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error-messages">error!</span>
+				</td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td>
+					<input type="text" name="password" th:field="*{password}" th:errorclass="error-input" />
+					<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-messages">error!</span>
+				</td>
+			</tr>
+			<tr>
+				<td>First login Flag:</td>
+				<td>
+					<input type="text" name="firstAccFlag" th:field="*{firstAccFlag}" th:errorclass="error-input" />
+					<span th:if="${#fields.hasErrors('firstAccFlag')}" th:errors="*{firstAccFlag}" class="error-messages">error!</span>
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="Create" />
+	</form>
+</body>
+</html>

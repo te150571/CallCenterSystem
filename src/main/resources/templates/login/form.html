@@ -1,12 +1,12 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
 	<title>ログイン</title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.mincss" th:href="@{/webjars/bootstrap/3.3.7/bootstrap-theme.min.css}" />
-    <link rel="stylesheet" href="../../static/css/style.css" />
-    <link rel="stylesheet" href="../../static/css/login_style.css"/>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/login_style.css"/>
 	<style>
 		
 	</style>
@@ -23,11 +23,11 @@
 			<div th:if="${param.error}" class="alert alert-danger">
 				IDとパスワードが違います。
 			</div>
-			<br>
-			<input type="text" class="form-control" name="username" placeholder="UserID" required="required" autofocus="autofocus" />
-			<input type="password" class="form-control" name="password" placeholder="Password" required="required">
-			<input class="parts btn" type="submit" value="ログイン">
-
+			<div class="position">
+				<input type="text" class="form-control" name="username" placeholder="UserID" required="required" autofocus="autofocus" />
+				<input type="password" class="form-control" name="password" placeholder="Password" required="required">
+				<input class="parts btn" type="submit" value="ログイン">
+			</div>
 		</form>
     </div>
 </body>

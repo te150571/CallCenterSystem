@@ -15,7 +15,7 @@ public class LoginController {
 	// ログイン画面
 	@RequestMapping
 	String index() {
-		return "login/miss";
+		return "login/form";
 	}
 	
 	// ログイン成功時

@@ -11,6 +11,7 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.repository.LockedIpAddressReposi
 /*
  * ロック済みIPアドレスデータベースService
  * "create" ロックIPアドレス追加
+ * "LockedCheck" IPアドレスがロックされているか
  */
 
 @Service
@@ -18,13 +19,18 @@ public class LockedIpAddressService {
 
 	@Autowired
 	LockedIpAddressRepository lockedIpAddressRepository;
-	
-public LockedIpAddressForm create(LockedIpAddressForm lockedIpAddressForm) {
-		
+
+	public LockedIpAddressForm create(LockedIpAddressForm lockedIpAddressForm) {
+
 		LockedIpAddressBean lockedIpAddressBean = new LockedIpAddressBean();
 		BeanUtils.copyProperties(lockedIpAddressForm, lockedIpAddressBean);
 		lockedIpAddressRepository.save(lockedIpAddressBean);
 		lockedIpAddressRepository.flush();
 		return lockedIpAddressForm;
+	}
+	
+	public String LockedCheck(String ip) { 
+		
+		return lockedIpAddressRepository.lockedCheckByIp(ip);
 	}
 }

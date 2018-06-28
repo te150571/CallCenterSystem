@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http)throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/", "login/form", "login/failed", "login/locked").permitAll()
+				.antMatchers("/", "/failed").permitAll()
 				.antMatchers("/user_test").permitAll()
 				.antMatchers("/user_test/add").permitAll()
 				.antMatchers("/user_test/create").permitAll()
@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin()
 				.loginProcessingUrl("/login")
 				.loginPage("/login/form")
-				.failureUrl("/?error")
+				.failureUrl("/failed")
 				.successForwardUrl("/success")
 //				.defaultSuccessUrl("/success", true)
 				.usernameParameter("username").passwordParameter("password")

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
-<link rel="stylesheet" type="text/css" href="../../static/css/login_miss_style.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/login_miss_style.css" />
 <title>ログイン停止画面</title>
 </head>
 <body>
@@ -11,18 +11,16 @@
         <h2>
            	 コールセンター顧客管理システム
         </h2>
-    <center>
-        <h1 class="place">
-            <font color="#ff0000" class="rap">
-                    5回失敗しました。管理者に報告してください。
-            </font>
-            <font>
-					<p class="p rap">管理者 : 〇〇</p>
-           			<p class="p rap">TEL : xxx-xxxx-xxxx</p>
-                    <p class="p rap">Mail : abazure@gmail.com</p>
-            </font>
-        </h1>
-    </center>
+        <div class="place">
+        	<div class="red">
+	            <p class="rap">5回失敗しました。管理者に報告してください。</p>
+	        </div>
+	        <div class="black">
+				<p class="rap">管理者 : 〇〇</p>
+	           	<p class="rap">TEL : xxx-xxxx-xxxx</p>
+	            <p class="rap">Mail : abazure@gmail.com</p>
+			</div>
+        </div>
 </div>
 </body>
 </html>

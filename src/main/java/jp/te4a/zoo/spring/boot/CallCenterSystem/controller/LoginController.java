@@ -82,10 +82,4 @@ public class LoginController {
 			return "forward:?error";
 		}
 	}
-	
-//	// ログイン連続5回失敗
-//	@RequestMapping("locked")
-//	String loginFiveMissed() {
-//		return "login/miss";
-//	}
 }

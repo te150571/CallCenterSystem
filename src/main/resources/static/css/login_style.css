@@ -6,29 +6,6 @@
     margin-top:5px;
 }
 
-.parts:active {/*ボタンを押したとき*/
-    -ms-transform: translateY(4px);
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);/*下に動く*/
-    border-bottom: none;/*線を消す*/
-}
-
-.parts:hover{
-    background:  #88daff;/*ボタン色*/
-    border-bottom: solid 4px #9cb5c0;
-}
-
-.form-control{
-	width: 300px;
-    margin: 0 auto;
-    margin-bottom: 8px;
-}
-
-.alert{
-	width: 300px;
-    margin: 0 auto;
-}
-
 
 .login_form{
     width:400px;
@@ -52,24 +29,6 @@
 .alert{
 	width: 300px;
 	margin: 0 auto;
-}
-
-.login_form{
-    border-style:solid;
-    width:400px;
-    height:350px;
-    border-color: rgb(216, 216, 216);
-    border-width: 2px;
-    
-    padding-top:30px;
-    padding-bottom: 50px;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
 }
 
 .position{

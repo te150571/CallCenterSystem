@@ -1,12 +1,17 @@
 @charset "UTF-8";
 .place{
 	    margin: 0 auto;
+<<<<<<< HEAD
 	    width:	80%;
+=======
+	    width:	0 auto;
+>>>>>>> eab1dd2f6da195526c2b5b109d14b8a4bcdbf3cf
 	    padding: 300px;
 }
 
 .rap{
 		white-space: nowrap;
+<<<<<<< HEAD
 }
 
 .red p{
@@ -18,4 +23,11 @@
 
 .black{
 	text-align: center;
+=======
+>>>>>>> eab1dd2f6da195526c2b5b109d14b8a4bcdbf3cf
+}
+
+.p{
+	width:500px;
+	margin: 0 auto;
 }

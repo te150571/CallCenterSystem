@@ -20,15 +20,14 @@
         <div th:if="${param.error}" class="alert alert-danger">
        	〇〇のパスワードが違います。
        	</div>
-       	
-        <form class="login_form" method="post" th:action="@{/login}" >
-	        <p class="form_place_top"><b>現在のパスワード</b></p>
-	        <input type="password" class="form-control" name="password" placeholder="Password" required="required" autofocus="autofocus" />
-	        <p class="form_place"><b>新しいパスワード</b></p>
-	        <input type="password" class="form-control" name="new_password" placeholder="New Password" required="required">
-	        <p class="form_place"><b>確認</b></p>
-	        <input type="password" class="form-control" name="new_password_check" placeholder="Check Password" required="required">
-	        <input class="change_button btn form_place_top" type="submit" value="変更">
+        <form class="login_form" method="post" th:action="@{/password/pass-change}" >
+        <p class="form_place_top"><b>現在のパスワード</b></p>
+        <input type="text" class="form-control" name="password" placeholder="Password" required="required" autofocus="autofocus" />
+        <p class="form_place"><b>新しいパスワード</b></p>
+        <input type="password" class="form-control" name="new_password" placeholder="New Password" required="required">
+        <p class="form_place"><b>確認</b></p>
+        <input type="password" class="form-control" name="new_password_check" placeholder="Check Password" required="required">
+        <input class="change_button btn form_place_top" type="submit" value="変更">
         </form>
         
         </div>

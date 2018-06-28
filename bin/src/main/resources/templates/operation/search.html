@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>コールセンター顧客管理システム</title>
-<link href="../../static/css/style.css" rel="stylesheet" type="text/css">
-<link href="../../static/css/SearchList_style.css" rel="stylesheet" type="text/css">
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+<link href="/css/SearchList_style.css" rel="stylesheet" type="text/css">
 <!---->
 
 
@@ -21,7 +21,7 @@
 
 
     <div class="main_screen">
-        <div>  <a class="registration_button" href=""><img src="../../static/img/add.png"> 新規顧客登録</a></div>
+        <div>  <a class="registration_button" href=""><img src="/img/add.png"> 新規顧客登録</a></div>
         <div id="search_table">
             <table >
                 <tr><th>氏名</th><th colspan="2"><input type="text" class="box_size"> <!--氏名--></th></tr>

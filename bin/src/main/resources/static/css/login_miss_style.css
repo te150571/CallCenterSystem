@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .place{
 	    margin: 0 auto;
-	    width:	0 auto;
+	    width:	80%;
 	    padding: 300px;
 }
 
@@ -9,7 +9,13 @@
 		white-space: nowrap;
 }
 
-.p{
-	width:500px;
-	margin: 0 auto;
+.red p{
+	color: #f00;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.black{
+	text-align: center;
 }

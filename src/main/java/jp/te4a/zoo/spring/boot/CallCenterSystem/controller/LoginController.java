@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -30,6 +32,12 @@ public class LoginController {
 	// ログイン画面
 	@RequestMapping
 	String index() {
+		// ログイン済みであればログイン後へ
+//		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		if(userDetails.getUsername() != null) {
+//			return "redirect:operation";
+//		}
+		
 		IpAddress ipAddress = new IpAddress();
 		String ip = ipAddress.getIpAddress();
 //		// アクセスしてきたIPアドレスが連続で5回ミスしていたらロックする

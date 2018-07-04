@@ -13,16 +13,19 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class SystemUserForm {
-	
+
 	// 社員番号（ID）
 	@NotNull
 	@Size(min=6, max=6)
 	private String username;
-	
+
 	// パスワード
 	@Size(min=6, max=12)
 	private String password;
-	
+
+	// 社員名
+	private String name;
+
 	// 初回ログインフラグ
 	private int firstAccFlag;
 }

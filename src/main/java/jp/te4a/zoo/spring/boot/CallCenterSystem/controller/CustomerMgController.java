@@ -43,16 +43,16 @@ public class CustomerMgController {
 
 	// ログイン後に表示
 	@RequestMapping
-	String list(Model model) {
-		// ログイン成功時アクセスログの成功フラグを1にする
-		IpAddress ipAddress = new IpAddress();
-		int logId = accessLogService.searchLastAccessByIp(ipAddress.getIpAddress());
-		accessLogService.updateAccResult(logId);
-
+	String list() {
 		// 初回ログインであればページパスワード変更画面を表示
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String uId = userDetails.getUsername();
+		
+		// ログイン成功時アクセスログの成功フラグを1にする
+		int logId = accessLogService.searchLastAccessByUId(uId);
+		accessLogService.updateAccResult(logId);
 
-		if(systemUserService.getFirstFlag(userDetails.getUsername()) == 1) {
+		if(systemUserService.getFirstFlag(uId) == 1) {
 			return "redirect:password";
 		}
 		else {

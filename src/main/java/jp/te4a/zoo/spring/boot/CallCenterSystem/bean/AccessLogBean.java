@@ -18,21 +18,24 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="accesslog")
 public class AccessLogBean {
-	
+
 	// ID（連番）
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	// IPアドレス
+
+	// IPAddress
 	private String ip;
 	
-	// 日付
-	private String date;
-	
+	// MacAddress
+	private String mac;
+
 	// 入力されたユーザ名
 	private String userId;
-	
+
+	// 日付
+	private String date;
+
 	// アクセス結果
 	private int accResult;
 }

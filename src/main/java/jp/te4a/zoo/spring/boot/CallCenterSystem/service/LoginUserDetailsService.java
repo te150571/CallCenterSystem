@@ -16,6 +16,7 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.form.AccessLogForm;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.repository.SystemUserRepository;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.security.LoginUserDetails;
 import utilities.IpAddress;
+import utilities.MacAddress;
 
 @Service
 public class LoginUserDetailsService implements UserDetailsService {
@@ -29,11 +30,13 @@ public class LoginUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// アクセスログを登録する
-		IpAddress ipAddress = new IpAddress();
+		IpAddress ip = new IpAddress();
+		MacAddress mac = new MacAddress();
 		AccessLogBean accessLogBean = new AccessLogBean();
-		accessLogBean.setIp(ipAddress.getIpAddress());
-		accessLogBean.setDate(String.valueOf(new Date()));
+		accessLogBean.setIp(ip.getIpAddress());
+		accessLogBean.setMac(mac.getMacAddress());
 		accessLogBean.setUserId(username);
+		accessLogBean.setDate(String.valueOf(new Date()));
 		accessLogBean.setAccResult(0);
 		AccessLogForm accessLogForm = new AccessLogForm();
 		BeanUtils.copyProperties(accessLogBean, accessLogForm);

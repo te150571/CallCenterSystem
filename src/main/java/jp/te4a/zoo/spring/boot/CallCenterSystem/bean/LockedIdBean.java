@@ -16,16 +16,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="locked_ip")
-public class LockedIpAddressBean {
+@Table(name="locked_id")
+public class LockedIdBean {
 
 	// ID（連番）
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	// IPアドレス
-	private String ip;
+	// ロックされたID
+	private String lockedId;
 
 	// 日付
 	private String date;

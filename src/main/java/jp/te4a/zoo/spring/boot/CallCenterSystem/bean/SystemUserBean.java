@@ -20,15 +20,18 @@ import net.minidev.json.annotate.JsonIgnore;
 @Entity
 @Table(name="callsys_user")
 public class SystemUserBean {
-	
+
 	// 社員番号（ID）
 	@Id
 	private String username;
-	
+
 	// パスワード
 	@JsonIgnore
 	private String password;
-	
+
+	// 社員名
+	private String name;
+
 	// 初回ログインフラグ
 	private int firstAccFlag;
 }

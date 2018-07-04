@@ -47,16 +47,11 @@ public class SystemUserController {
 	@GetMapping(path="test-user-create")
 	String testUserCreate() {
 		// システムユーザデータベース登録
-		SystemUserBean userBean = new SystemUserBean("150571", "password", 0);		
+		SystemUserBean userBean = new SystemUserBean("150571", "password", "Name", 0);		
 		SystemUserForm userForm = new SystemUserForm();
 		BeanUtils.copyProperties(userBean, userForm);
 		userService.create(userForm);
 		
-		// 社員データベース登録
-		EmployeeBean empBean = new EmployeeBean("150571", "This is Name.", "This is Mail Address.", "This is Phone Number.");
-		EmployeeForm empForm = new EmployeeForm();
-		BeanUtils.copyProperties(empBean, empForm);
-		employeeService.create(empForm);
 		return "redirect:/";
 	}
 	

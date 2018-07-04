@@ -43,7 +43,7 @@ public class CustomerMgController {
 
 	// ログイン後に表示
 	@RequestMapping
-	String list(Model model) {
+	String list() {
 		// 初回ログインであればページパスワード変更画面を表示
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String uId = userDetails.getUsername();

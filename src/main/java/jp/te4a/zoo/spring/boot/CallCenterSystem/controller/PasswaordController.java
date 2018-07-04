@@ -47,10 +47,9 @@ public class PasswaordController {
 		}
 		// パスワードが一致するならパスワードを更新
 		if(passwordEncoder().matches(password, systemUserService.getPassword(uid)) && newPassword.equals(newPasswordCheck)) {
-			systemUserService.updatePassword(uid, newPassword);
+			systemUserService.updatePassword(uid, passwordEncoder().encode(newPassword));
 		}
 		else {
-			System.out.println("DEBUG1:");
 			return "forward:?error";
 		}
 		

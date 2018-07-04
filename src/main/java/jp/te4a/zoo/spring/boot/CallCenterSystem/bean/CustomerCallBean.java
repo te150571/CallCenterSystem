@@ -34,4 +34,7 @@ public class CustomerCallBean {
 	
 	// 日付
 	private String date;
+	
+	// 対応する顧客ID(外部参照)
+	private String c_id;
 }

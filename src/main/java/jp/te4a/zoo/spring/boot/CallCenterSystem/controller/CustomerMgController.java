@@ -4,19 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import jp.te4a.zoo.spring.boot.CallCenterSystem.form.CustomerForm;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.form.SystemUserForm;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.service.AccessLogService;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.service.CustomerService;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.service.SystemUserService;
-import utilities.IpAddress;
 
 /*
  * 本システム用コントローラ
@@ -62,8 +57,8 @@ public class CustomerMgController {
 
 
 	// 検索が実行されたとき
-	@PostMapping(path="searched")
-	String SaerchResult(@Validated CustomerForm form, BindingResult result, Model model) {
+	@RequestMapping("searching")
+	String SaerchResult(@RequestParam("name") String name, @RequestParam("tel") String tel, @RequestParam("address") String address) {
 		//		if(result.hasErrors()) {
 		//			return list(model);
 		//		}

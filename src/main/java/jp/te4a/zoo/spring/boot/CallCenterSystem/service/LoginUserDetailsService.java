@@ -15,8 +15,8 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.SystemUserBean;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.form.AccessLogForm;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.repository.SystemUserRepository;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.security.LoginUserDetails;
-import utilities.IpAddress;
-import utilities.MacAddress;
+import jp.te4a.zoo.spring.boot.CallCenterSystem.utilities.IpAddress;
+import jp.te4a.zoo.spring.boot.CallCenterSystem.utilities.MacAddress;
 
 @Service
 public class LoginUserDetailsService implements UserDetailsService {

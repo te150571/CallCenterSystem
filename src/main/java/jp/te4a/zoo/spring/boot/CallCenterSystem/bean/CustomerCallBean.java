@@ -29,9 +29,6 @@ public class CustomerCallBean {
 	// 本文
 	private String contents;
 	
-	// カテゴリ
-	private String call_id;
-	
 	// 日付
 	private String date;
 	

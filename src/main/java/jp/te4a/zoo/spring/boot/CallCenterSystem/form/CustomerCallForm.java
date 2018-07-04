@@ -26,10 +26,6 @@ public class CustomerCallForm {
 	// 本文
 	private String contents;
 
-	// カテゴリ
-	@Size(max=12)
-	private String call_id;
-
 	// 日付
 	private String date;
 	

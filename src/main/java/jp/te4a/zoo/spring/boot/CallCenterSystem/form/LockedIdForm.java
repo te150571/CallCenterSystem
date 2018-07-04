@@ -11,14 +11,14 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class LockedIpAddressForm {
+public class LockedIdForm {
 
 	// ID
 	@NotNull
 	private int id;
 
-	// IPアドレス
-	private String ip;
+	// ロックされたID
+	private String lockedId;
 
 	// 日付
 	private String date;

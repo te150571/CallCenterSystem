@@ -7,11 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.LockedIpAddressBean;
-import jp.te4a.zoo.spring.boot.CallCenterSystem.form.LockedIpAddressForm;
+import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.LockedIdBean;
+import jp.te4a.zoo.spring.boot.CallCenterSystem.form.LockedIdForm;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.service.AccessLogService;
-import jp.te4a.zoo.spring.boot.CallCenterSystem.service.LockedIpAddressService;
-import utilities.IpAddress;
+import jp.te4a.zoo.spring.boot.CallCenterSystem.service.LockedIdService;
 
 /*
  * ログイン操作コントローラ
@@ -25,31 +24,17 @@ public class LoginController {
 	AccessLogService accessLogService;
 	
 	@Autowired
-	LockedIpAddressService lockedIpAddressService;
+	LockedIdService lockedIdService;
+	
+//	@ModelAttribute
+//	LoginForm setUpForm() {
+//		return new LoginForm();
+//	}
 	
 	// ログイン画面
 	@RequestMapping
 	String index() {
-		IpAddress ipAddress = new IpAddress();
-		String ip = ipAddress.getIpAddress();
-//		// アクセスしてきたIPアドレスが連続で5回ミスしていたらロックする
-//		if(accessLogService.countLoginMiss(ip) > 4) {
-//			LockedIpAddressBean lockedIpAddressBean = new LockedIpAddressBean();
-//			lockedIpAddressBean.setIp(ip);
-//			lockedIpAddressBean.setDate(String.valueOf(new Date()));
-//			lockedIpAddressBean.setLocked(1);
-//			LockedIpAddressForm lockedIpAddressForm = new LockedIpAddressForm();
-//			BeanUtils.copyProperties(lockedIpAddressBean, lockedIpAddressForm);
-//			lockedIpAddressService.create(lockedIpAddressForm);
-//		}
-		
-		// アクセスしてきたIPアドレスがロックされているかチェック
-		if(lockedIpAddressService.LockedCheck(ip) != null && lockedIpAddressService.LockedCheck(ip).equals("1")) {
-			return "login/miss";
-		}
-		else {
-			return "login/form";
-		}
+		return "login/form";
 	}
 	
 	// ログイン成功時
@@ -61,21 +46,19 @@ public class LoginController {
 	// ログイン失敗時
 	@RequestMapping("failed")
 	String loginFailed() {
-		IpAddress ipAddress = new IpAddress();
-		String ip = ipAddress.getIpAddress();
-		// アクセスしてきたIPアドレスが連続で5回ミスしていたらロックする
-		if(accessLogService.countLoginMiss(ip) > 4) {
-			LockedIpAddressBean lockedIpAddressBean = new LockedIpAddressBean();
-			lockedIpAddressBean.setIp(ip);
-			lockedIpAddressBean.setDate(String.valueOf(new Date()));
-			lockedIpAddressBean.setLocked(1);
-			LockedIpAddressForm lockedIpAddressForm = new LockedIpAddressForm();
-			BeanUtils.copyProperties(lockedIpAddressBean, lockedIpAddressForm);
-			lockedIpAddressService.create(lockedIpAddressForm);
+		// アクセスしてきたIDが連続で5回ミスしていたらロックする
+		if(accessLogService.countLoginMiss("") > 4) {
+			LockedIdBean lockedIdBean = new LockedIdBean();
+			lockedIdBean.setLockedId("id");
+			lockedIdBean.setDate(String.valueOf(new Date()));
+			lockedIdBean.setLocked(1);
+			LockedIdForm lockedIdForm = new LockedIdForm();
+			BeanUtils.copyProperties(lockedIdBean, lockedIdForm);
+			lockedIdService.create(lockedIdForm);
 		}
 		
-		// アクセスしてきたIPアドレスがロックされているかチェック
-		if(lockedIpAddressService.LockedCheck(ip) != null && lockedIpAddressService.LockedCheck(ip).equals("1")) {
+		// アクセスしてきたIDがロックされているかチェック
+		if(lockedIdService.LockedCheck("") == "1") {
 			return "login/miss";
 		}
 		else {

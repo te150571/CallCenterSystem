@@ -10,19 +10,19 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.AccessLogBean;
 
 /*
  * アクセスログデータベースRepository
- * "findByIpLast" 対象のIPアドレスに対応する直近のログのIDを返す（ログイン成功フラグ更新用）
- * "countLoginMiss" 対象IPアドレスでの直近5回のログイン成否を返す（ログインロック用）
- * "updateAccResult" 対象IPアドレスの最終ログインログの成否フラグを更新する
+ * "findByIdLast" 対象のユーザIDに対応する直近のログのIDを返す（ログイン成功フラグ更新用）
+ * "countLoginMiss" 対象ユーザIDでの直近5回のログイン成否を返す（ログインロック用）
+ * "updateAccResult" 対象の最終ログインログの成否フラグを更新する
  */
 
 @Transactional
 public interface AccessLogRepository extends JpaRepository<AccessLogBean, String> {
 
-	@Query("select max(id) from AccessLogBean acc where acc.ip = :ip")
-	public int findByIpLast(@Param("ip") String ip);
+	@Query("select max(id) from AccessLogBean acc where acc.userId = :uId")
+	public int findByUIdLast(@Param("uId") String uId);
 	
-	@Query("select count(*) from AccessLogBean acc where id in (select acc2.id from AccessLogBean acc2 where acc2.ip = :ip and rownum <= 5 order by id desc) and acc.accResult = 0")
-	public int countLoginMiss(@Param("ip") String ip);
+	@Query("select count(*) from AccessLogBean acc where id in (select acc2.id from AccessLogBean acc2 where acc2.userId = :uId and rownum <= 5 order by id desc) and acc.accResult = 0")
+	public int countLoginMiss(@Param("uId") String userId);
 	
 	@Modifying
 	@Query("update AccessLogBean acc set acc.accResult = 1 where acc.id = :logid")

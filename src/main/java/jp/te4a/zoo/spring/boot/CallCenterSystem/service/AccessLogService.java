@@ -11,9 +11,9 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.repository.AccessLogRepository;
 /*
  * AccessLogデータベースService
  * "create" アクセスログ追加
- * "searchLastAccessByIp" 対象IPアドレスの最終ログインログのIDを返す
- * "countLoginMiss" 対象IPアドレスでの直近5回のログイン成否を返す（ログインロック用）
- * "updateAccResult" 対象IPアドレスの最終ログインログの成否フラグを更新する
+ * "searchLastAccessById" 対象ユーザIDの最終ログインログのIDを返す
+ * "countLoginMiss" 対象ユーザIDでの直近5回のログイン成否を返す（ログインロック用）
+ * "updateAccResult" 対象ユーザIDの最終ログインログの成否フラグを更新する
  */
 
 @Service
@@ -31,12 +31,12 @@ public class AccessLogService {
 		return accessLogForm;
 	}
 	
-	public int searchLastAccessByIp(String ip) {
-		return accessLogRepository.findByIpLast(ip);
+	public int searchLastAccessByUId(String uId) {
+		return accessLogRepository.findByUIdLast(uId);
 	}
 	
-	public int countLoginMiss(String ip) {
-		return accessLogRepository.countLoginMiss(ip);
+	public int countLoginMiss(String uId) {
+		return accessLogRepository.countLoginMiss(uId);
 	}
 	
 	public void updateAccResult(int id) {

@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+.inquiry_screen{
+    position: relative;
+    top: 60px;
+}
+
+.position1{
+    position: relative;
+    top: 80px;
+    left: -300px;
+}
+
+.position2{
+    position: relative;
+    top: 10px;
+    right:-700px;
+}
+
+.client{
+    font-size: 30px;
+
+    position: relative;
+    top: 50px;
+    left: -300px;
+}
+
+.category_opt{
+    font-size: 16px;
+    position: relative;
+    left: 20px;
+    width: 175px;
+    height: 32px;
+}
+
+.inquiry_btn{
+    font-size: 16px;
+    width: auto;
+    height: 40px;
+}
+
+.table_all{
+    font-size: 25px;
+    position: relative;
+    top: 50px;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+.subject{
+    width: 200px;
+}
+
+.overview{
+    width: 500px;
+}
+
+.time{
+    width: 200px;
+}
+
+.time_date{
+    font-size:20px;
+}
+
+.day_date_opt{
+    position: relative;
+    top: 0px;
+    right: -80px;
+    height: auto;
+    width: auto;
+}

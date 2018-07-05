@@ -29,7 +29,7 @@ public class LockedIdService {
 		return lockedIdForm;
 	}
 	
-	public String LockedCheck(String uId) { 
+	public String lockedCheck(String uId) { 
 		
 		return lockedIdRepository.lockedCheckByUId(uId);
 	}

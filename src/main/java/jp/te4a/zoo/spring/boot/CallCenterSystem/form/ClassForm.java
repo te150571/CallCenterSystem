@@ -16,4 +16,7 @@ public class ClassForm {
 	// ID
 	@NotNull
 	private String id;
+	
+	// 分類名
+	private String name;
 }

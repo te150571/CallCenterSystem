@@ -60,7 +60,7 @@ public class LoginController {
 		}
 		
 		// アクセスしてきたIDがロックされているかチェック
-		if(lockedIdService.LockedCheck("") == "1") {
+		if(lockedIdService.lockedCheck("") == "1") {
 			return "login/miss";
 		}
 		else {

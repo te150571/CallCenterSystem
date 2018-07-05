@@ -29,7 +29,7 @@ public class CustomerService {
 		return customerForm;
 	}
 	
-	public String SearchCustomerId(String uLastName, String uFirstName, String uTel, String uAdd) {
-		return customerRepository.SearchCustomerId(uLastName, uFirstName, uTel, uAdd);
+	public String searchCustomerId(String uLastName, String uFirstName, String uTel, String uAdd) {
+		return customerRepository.searchCustomerId(uLastName, uFirstName, uTel, uAdd);
 	}
 }

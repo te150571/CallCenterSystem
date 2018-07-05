@@ -1,5 +1,8 @@
 package jp.te4a.zoo.spring.boot.CallCenterSystem.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,8 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.CustomerCallBean;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.form.SystemUserForm;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.service.AccessLogService;
+import jp.te4a.zoo.spring.boot.CallCenterSystem.service.CustomerCallService;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.service.CustomerService;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.service.SystemUserService;
 
@@ -24,6 +29,9 @@ public class CustomerMgController {
 
 	@Autowired
 	CustomerService customerService;
+	
+	@Autowired
+	CustomerCallService customerCallService;
 
 	@Autowired
 	SystemUserService systemUserService;
@@ -58,11 +66,22 @@ public class CustomerMgController {
 
 	// 検索が実行されたとき
 	@RequestMapping("searching")
-	String SaerchResult(@RequestParam("name") String name, @RequestParam("tel") String tel, @RequestParam("address") String address) {
-		//		if(result.hasErrors()) {
-		//			return list(model);
-		//		}
-		//		customerService.create(form);
-		return "operation/searchResult";
+	String SaerchResult(@RequestParam(name = "lastName", required = true) String lastName, @RequestParam(name = "firstName", required = true) String firstName, @RequestParam(name = "tel", required = true) String tel, @RequestParam(name = "address" , required = true) String address) throws Exception {
+		
+		System.out.println("DEBUG1: lastName = " + lastName);
+		System.out.println("DEBUG1: firstName = " + firstName);
+		System.out.println("DEBUG1: tel = " + tel);
+		System.out.println("DEBUG1: address = " + address);
+		
+		String uId = customerService.searchCustomerId(lastName, firstName, tel, address);
+		
+		System.out.println("DEBUG2: userId = " + uId);
+		
+		Optional<CustomerCallBean> callDataOpt = customerCallService.searchDataAll(uId);
+		CustomerCallBean callData = callDataOpt.orElseThrow(() -> new Exception(""));
+		
+		System.out.println("DEBUG2: callData Size = " + callData.getContents());
+		
+		return "operation/s-result";
 	}
 }

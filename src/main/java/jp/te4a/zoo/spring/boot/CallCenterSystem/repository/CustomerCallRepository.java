@@ -1,6 +1,7 @@
 package jp.te4a.zoo.spring.boot.CallCenterSystem.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -21,24 +22,21 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.CustomerCallBean;
 
 public interface CustomerCallRepository extends JpaRepository<CustomerCallBean, String> {
 	
-	@Query("select customer.id, customer.class_id, customer.content, customer.date from CustomerCallBean where customer.c_id = :uId order by id asc")
-	public List<String> SearchDataAll(@Param("uId") String uId);
+	@Query("select customer.id, customer.class_id, customer.contents, customer.date from CustomerCallBean customer where customer.c_id = :uId order by id asc")
+	public Optional<CustomerCallBean> searchDataAll(@Param("uId") String uId);
 	
-	@Query("select customer.id, customer.class_id, customer.content, customer.date from CustomerCallBean where customer.c_id = :uId and customer.date >= :date order by id asc")
-	public List<String> SearchDataAllFromDateAfter(@Param("uId") String uId, @Param("date") String date);
+	@Query("select customer.id, customer.class_id, customer.contents, customer.date from CustomerCallBean customer where customer.c_id = :uId and customer.date >= :date order by customer.id asc")
+	public Optional<CustomerCallBean> searchDataAllFromDateAfter(@Param("uId") String uId, @Param("date") String date);
 	
-	@Query("select customer.id, customer.class_id, customer.content, customer.date from CustomerCallBean where customer.c_id = :uId and customer.date <= :date order by id asc")
-	public List<String> SearchDataAllFromDateBefore(@Param("uId") String uId, @Param("date") String date);
+	@Query("select customer.id, customer.class_id, customer.contents, customer.date from CustomerCallBean customer where customer.c_id = :uId and customer.date <= :date order by customer.id asc")
+	public Optional<CustomerCallBean> searchDataAllFromDateBefore(@Param("uId") String uId, @Param("date") String date);
 	
-	@Query("select customer.id, customer.class_id, customer.content, customer.date from CustomerCallBean where customer.c_id = :uId and customer.class_id <= :classId order by id asc")
-	public List<String> SearchDataAllFromClass(@Param("uId") String uId, @Param("classId") String classId);
+	@Query("select customer.id, customer.class_id, customer.contents, customer.date from CustomerCallBean customer where customer.c_id = :uId and customer.class_id <= :classId order by customer.id asc")
+	public Optional<CustomerCallBean> searchDataAllFromClass(@Param("uId") String uId, @Param("classId") String classId);
 	
-	@Query("select customer.id, customer.class_id, customer.content, customer.date from CustomerCallBean where customer.c_id = :uId and customer.class_id <= :classId and customer.date >= :date order by id asc")
-	public List<String> SearchDataAllFromClassAndDateAfter(@Param("uId") String uId, @Param("classId") String classId, @Param("date") String date);
+	@Query("select customer.id, customer.class_id, customer.contents, customer.date from CustomerCallBean customer where customer.c_id = :uId and customer.class_id <= :classId and customer.date >= :date order by customer.id asc")
+	public Optional<CustomerCallBean> searchDataAllFromClassAndDateAfter(@Param("uId") String uId, @Param("classId") String classId, @Param("date") String date);
 	
-	@Query("select customer.id, customer.class_id, customer.content, customer.date from CustomerCallBean where customer.c_id = :uId and customer.class_id <= :classId and customer.date <= :date order by id asc")
-	public List<String> SearchDataAllFromClassAndDateBefore(@Param("uId") String uId, @Param("classId") String classId, @Param("date") String date);
-	
-	@Query("select customer.id, customer.class_id, customer.content, customer.date from CustomerCallBean where customer.id = :cId order by id asc")
-	public List<String> SearchDataOne(@Param("cId") String cId);
+	@Query("select customer.id, customer.class_id, customer.contents, customer.date from CustomerCallBean customer where customer.c_id = :uId and customer.class_id <= :classId and customer.date <= :date order by customer.id asc")
+	public Optional<CustomerCallBean> searchDataAllFromClassAndDateBefore(@Param("uId") String uId, @Param("classId") String classId, @Param("date") String date);
 }

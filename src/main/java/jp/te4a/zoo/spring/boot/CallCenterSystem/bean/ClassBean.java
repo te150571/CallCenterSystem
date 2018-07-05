@@ -16,10 +16,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="class")
+@Table(name="t_callclass")
 public class ClassBean {
 	
 	@Id
 	// ID
 	private String id;
+	
+	// 分類名
+	private String name;
 }

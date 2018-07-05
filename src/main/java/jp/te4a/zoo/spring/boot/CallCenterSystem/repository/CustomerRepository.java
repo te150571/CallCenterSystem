@@ -14,5 +14,5 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.CustomerBean;
 public interface CustomerRepository extends JpaRepository<CustomerBean, String> {
 
 	@Query("select customer.id from CustomerBean customer where customer.lastname = :uLastName and customer.firstname = :uFirstName and customer.tel = :uTel and customer.address = :uAdd order by customer.id asc")
-	public String SearchCustomerId(@Param("uLastName") String uLastName, @Param("uFirstName") String uFirstName, @Param("uTel") String uTel, @Param("uAdd") String uAdd);
+	public String searchCustomerId(@Param("uLastName") String uLastName, @Param("uFirstName") String uFirstName, @Param("uTel") String uTel, @Param("uAdd") String uAdd);
 }

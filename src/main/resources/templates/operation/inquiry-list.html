@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>コールセンター顧客管理システム</title>
-<link href="../../static/css/style.css" rel="stylesheet" type="text/css">
-<link href="../../static/css/inquiry-list_style.css" rel="stylesheet" type="text/css">
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+<link href="/css/inquiry-list_style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
@@ -44,22 +45,57 @@
                         <option value=”other”>その他</option>
                     </select>
                 </td>
-                <td><div><input type="submit" value="絞り込み" class="inquiry_btn btn"></div></td>
+                <td><input type="submit" value="絞り込み" class="inquiry_btn btn"></td>
             </tr>
         </table>
 
+
+
+
         <div>
-            <table class="table_all"  rules="all">
-                <tr>
-                    <th class="subject">件名</th>
-                    <th class="overview">概要</th>
-                    <th class="time">登録日時</th>
-                </tr>
+            <table id="table_sort" class="tablesorter"  rules="all">
+                <thead>
+                    <tr>
+                        <th class="subject">件名</th>
+                        <th class="overview">概要</th>
+                        <th class="time">登録日時</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>あきば</td>
+                        <td>今日も秋葉は寝ている...</td>
+                        <td>2018/07/05</td>
+                    </tr>
+                    <tr>
+                        <td>Aば</td>
+                        <td>起きてちゃんと仕事するのかと思ったら...</td>
+                        <td>2018/07/05</td>
+                    </tr>
+                    <tr>
+                        <td>秋B</td>
+                        <td>どっかに言ってしま...</td>
+                        <td>2018/07/05</td>
+                    </tr>
+                    <tr>
+                        <td>だれか見た？</td>
+                        <td>その後、彼は...</td>
+                        <td>2018/07/06</td>
+                    </tr>
+                    <tr>
+                        <td>気づいたらw</td>
+                        <td>彼は、病院に...</td>
+                        <td>2018/07/20</td>
+                    </tr>
+                </tbody>
 
 
             </table>
         </div>
     </div>
 
-    <script type="text/javascript" src="../../static/javascript/time.js"></script>
+    <script type="text/javascript" src="/js/inquiry-list.js"></script>
+    <script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
+
 </body>

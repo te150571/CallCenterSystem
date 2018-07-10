@@ -73,7 +73,7 @@ public class TestDataCreateController {
 		String[] cls = {"002", "002", "001", "003", "004", "005", "001"};
 		String[] contents = {"問い合わせ1", "問い合わせ2", "問い合わせ3", "問い合わせ4", "問い合わせ5", "問い合わせ6", "問い合わせ7"};
 		String[] date = {"2016/01/02", "2016/03/03", "2017/01/02", "2017/07/02", "2018/05/02", "2018/06/02", "2018/06/10"};
-		String[] cId = {"111111", "111112", "111112", "111111", "111112", "111112", "111111"};
+		String[] cId = {"11111111", "11111112", "11111112", "11111111", "11111112", "11111112", "11111111"};
 		for(int i=0; i<cls.length; i++) {
 			CustomerCallBean customerCallBean = new CustomerCallBean();
 			customerCallBean.setId("0000000" + i);

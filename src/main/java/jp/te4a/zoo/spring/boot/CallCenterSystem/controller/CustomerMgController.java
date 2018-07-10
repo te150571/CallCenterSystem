@@ -1,12 +1,12 @@
 package jp.te4a.zoo.spring.boot.CallCenterSystem.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,7 +66,7 @@ public class CustomerMgController {
 
 	// 検索が実行されたとき
 	@RequestMapping("searching")
-	String SaerchResult(@RequestParam(name = "lastName", required = true) String lastName, @RequestParam(name = "firstName", required = true) String firstName, @RequestParam(name = "tel", required = true) String tel, @RequestParam(name = "address" , required = true) String address) throws Exception {
+	String SaerchResult(@RequestParam(name = "lastName", required = true) String lastName, @RequestParam(name = "firstName", required = true) String firstName, @RequestParam(name = "tel", required = true) String tel, @RequestParam(name = "address" , required = true) String address, Model model) throws Exception {
 		
 		System.out.println("DEBUG1: lastName = " + lastName);
 		System.out.println("DEBUG1: firstName = " + firstName);
@@ -77,10 +77,14 @@ public class CustomerMgController {
 		
 		System.out.println("DEBUG2: userId = " + uId);
 		
-		Optional<CustomerCallBean> callDataOpt = customerCallService.searchDataAll(uId);
-		CustomerCallBean callData = callDataOpt.orElseThrow(() -> new Exception(""));
+		List<CustomerCallBean> callData = customerCallService.findAllDataByCid(uId);
+//		System.out.println("DEBUG2-x:" + callData.getClass());
+//		CustomerCallBean cb = callData.get(0);
 		
-		System.out.println("DEBUG2: callData Size = " + callData.getContents());
+		System.out.println("DEBUG2: callData Size = " + callData.size());
+//		System.out.println("DEBUG2: callData id = " + cb.getContents());
+		
+		model.addAttribute("calldata", callData);
 		
 		return "operation/s-result";
 	}

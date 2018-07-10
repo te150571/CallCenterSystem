@@ -1,6 +1,6 @@
 package jp.te4a.zoo.spring.boot.CallCenterSystem.service;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +14,12 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.repository.CustomerCallRepositor
 /*
  * 顧客問い合わせデータベースService
  * "create" 新規問い合わせ登録
- * "SearchDataAll" ユーザIDから問い合わせ情報の検索
- * "SearchDataAllFromDateAfter" ユーザIDから問い合わせ情報の検索（件名指定なし、指定日付以降）
- * "SearchDataAllFromDateBefore" ユーザIDから問い合わせ情報の検索（件名指定なし、指定日付以前）
- * "SearchDataAllFromClass" ユーザIDから問い合わせ情報の検索(件名指定)
- * "SearchDataAllFromClassAndDateAfter" ユーザIDから問い合わせ情報の検索（件名指定、指定日付以降）
- * "SearchDataAllFromClassAndDateBefore" ユーザIDから問い合わせ情報の検索（件名指定、指定日付以前）
+ * "findAllDataByCid" ユーザIDから問い合わせ情報の検索
+ * "findByAfterDate" ユーザIDから問い合わせ情報の検索（件名指定なし、指定日付以降）
+ * "findByBeforeDate" ユーザIDから問い合わせ情報の検索（件名指定なし、指定日付以前）
+ * "findByClass" ユーザIDから問い合わせ情報の検索(件名指定)
+ * "findByClassAndAfterDate" ユーザIDから問い合わせ情報の検索（件名指定、指定日付以降）
+ * "findByClassAndBeforeDate" ユーザIDから問い合わせ情報の検索（件名指定、指定日付以前）
  */
 
 @Service
@@ -36,27 +36,27 @@ public class CustomerCallService {
 		return customerCallForm;
 	}
 	
-	public Optional<CustomerCallBean> searchDataAll(@Param("uId") String uId) {
-		return customerCallRepository.searchDataAll(uId);
+	public List<CustomerCallBean> findAllDataByCid(@Param("uId") String uId) {
+		return customerCallRepository.findAllDataByCid(uId);
 	}
 	
-	public Optional<CustomerCallBean> searchDataAllFromDateAfter(@Param("uId") String uId, @Param("date") String date) {
-		return customerCallRepository.searchDataAllFromDateAfter(uId, date);
+	public List<CustomerCallBean> findByAfterDate(@Param("uId") String uId, @Param("date") String date) {
+		return customerCallRepository.findByAfterDate(uId, date);
 	}
 	
-	public Optional<CustomerCallBean> searchDataAllFromDateBefore(@Param("uId") String uId, @Param("date") String date) {
-		return customerCallRepository.searchDataAllFromDateBefore(uId, date);
+	public List<CustomerCallBean> findByBeforeDate(@Param("uId") String uId, @Param("date") String date) {
+		return customerCallRepository.findByBeforeDate(uId, date);
 	}
 	
-	public Optional<CustomerCallBean> searchDataAllFromClass(@Param("uId") String uId, @Param("classId") String classId) {
-		return customerCallRepository.searchDataAllFromClass(uId, classId);
+	public List<CustomerCallBean> findByClass(@Param("uId") String uId, @Param("classId") String classId) {
+		return customerCallRepository.findByClass(uId, classId);
 	}
 	
-	public Optional<CustomerCallBean> searchDataAllFromClassAndDateAfter(@Param("uId") String uId, @Param("classId") String classId, @Param("date") String date) {
-		return customerCallRepository.searchDataAllFromClassAndDateAfter(uId, classId, date);
+	public List<CustomerCallBean> findByClassAndAfterDate(@Param("uId") String uId, @Param("classId") String classId, @Param("date") String date) {
+		return customerCallRepository.findByClassAndAfterDate(uId, classId, date);
 	}
 	
-	public Optional<CustomerCallBean> searchDataAllFromClassAndDateBefore(@Param("uId") String uId, @Param("classId") String classId, @Param("date") String date) {
-		return customerCallRepository.searchDataAllFromClassAndDateBefore(uId, classId, date);
+	public List<CustomerCallBean> findByClassAndBeforeDate(@Param("uId") String uId, @Param("classId") String classId, @Param("date") String date) {
+		return customerCallRepository.findByClassAndBeforeDate(uId, classId, date);
 	}
 }

@@ -9,10 +9,14 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.CustomerBean;
 /*
  * 顧客情報データベースRepository
  * "SearchCustomerId" 入力された「苗字」「名前」「電話番号」「住所」をもとに顧客IDを検索
+ * "findNameByUid" ユーザIDから顧客名を検索
  */
 
 public interface CustomerRepository extends JpaRepository<CustomerBean, String> {
 
 	@Query("select customer.id from CustomerBean customer where customer.lastname = :uLastName and customer.firstname = :uFirstName and customer.tel = :uTel and customer.address = :uAdd order by customer.id asc")
-	public String searchCustomerId(@Param("uLastName") String uLastName, @Param("uFirstName") String uFirstName, @Param("uTel") String uTel, @Param("uAdd") String uAdd);
+	public String findCustomerId(@Param("uLastName") String uLastName, @Param("uFirstName") String uFirstName, @Param("uTel") String uTel, @Param("uAdd") String uAdd);
+	
+	@Query("select concat(customer.lastname, customer.firstname) from CustomerBean customer where customer.id = :uId")
+	public String findNameByUid(@Param("uId") String uId);
 }

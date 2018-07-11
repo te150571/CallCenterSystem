@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Result Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div>
+		<table th:if="${callData} != null">
+			<tr>
+				<th>ID</th>
+				<th>Class ID</th>
+				<th>Contents</th>
+			</tr>
+			<tr th:each="callData : ${callData}">
+				<td th:text="${callData[0]}"></td>
+				<td th:text="${callData[1]}"></td>
+				<td th:text="${callData[2]}" style="font-weight: bold;"></td>
+				<td th:text="${callData[3]}"></td>
+			</tr>
+		</table>
+		<p th:unless="${callData} != null">データがありません</p>
+	</div>
+</body>
+</html>

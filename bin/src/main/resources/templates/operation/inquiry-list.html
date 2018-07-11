@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>コールセンター顧客管理システム</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+<link href="/css/inquiry-list_style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <div class="gradation">
+        <h2>コールセンター顧客管理システム</h2>
+        <div class="id_position">
+            <span id="loggedas">ログイン中： <a id="user_id posi" href="">〇〇〇〇〇<!--ユーザID--></a></sapn>
+            <span><a class="logout" rel="nofollow" data-method="post" href="">ログアウト</a></span>
+        </div>
+    </div>
+
+
+    <div class="main_screen inquiry_screen">
+        <div class="client">〇〇〇〇〇 <span>様</span></div>
+        <div><input type="submit" value="問い合わせ内容登録" class="inquiry_btn btn position1"></div>
+        
+
+        <table class="position2">
+            <tr>
+                <td class="day_date_opt">  <!-- 日付 -->
+                    <!--日付の絞り込みと表示順序の設定-->
+                    <select name="year" id="id_year" class="time_date"></select>
+                    <select name="month" id="id_month" class="time_date"></select>
+                    <select name="day" id="id_day" class="time_date"></select>
+                    <span><input type="radio" name="example" value="以前" checked>以前<input type="radio" name="example" value="以降">以降</span>
+                <td>
+            </tr>
+
+            <tr>
+                <td>
+                    <select name=”category” class="category_opt">
+                        <option value=”all”>すべて</option>
+                        <option value=”request”>依頼</option>
+                        <option value=”inquiry”>問い合わせ</option>
+                        <option value=”support”>サポート</option>
+                        <option value=”claim”>クレーム</option>
+                        <option value=”other”>その他</option>
+                    </select>
+                </td>
+                <td><input type="submit" value="絞り込み" class="inquiry_btn btn"></td>
+            </tr>
+        </table>
+
+
+
+
+        <div>
+            <table id="table_sort" class="tablesorter"  rules="all">
+                <thead>
+                    <tr>
+                        <th class="subject">件名</th>
+                        <th class="overview">概要</th>
+                        <th class="time">登録日時</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>あきば</td>
+                        <td>今日も秋葉は寝ている...</td>
+                        <td>2018/07/05</td>
+                    </tr>
+                    <tr>
+                        <td>Aば</td>
+                        <td>起きてちゃんと仕事するのかと思ったら...</td>
+                        <td>2018/07/05</td>
+                    </tr>
+                    <tr>
+                        <td>秋B</td>
+                        <td>どっかに言ってしま...</td>
+                        <td>2018/07/05</td>
+                    </tr>
+                    <tr>
+                        <td>だれか見た？</td>
+                        <td>その後、彼は...</td>
+                        <td>2018/07/06</td>
+                    </tr>
+                    <tr>
+                        <td>気づいたらw</td>
+                        <td>彼は、病院に...</td>
+                        <td>2018/07/20</td>
+                    </tr>
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/js/inquiry-list.js"></script>
+    <script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
+
+</body>

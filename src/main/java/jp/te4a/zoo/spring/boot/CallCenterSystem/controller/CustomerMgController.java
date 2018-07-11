@@ -65,20 +65,16 @@ public class CustomerMgController {
 	@RequestMapping("searching")
 	String SaerchResult(@RequestParam(name = "lastName", required = true) String lastName, @RequestParam(name = "firstName", required = true) String firstName, @RequestParam(name = "tel", required = true) String tel, @RequestParam(name = "address" , required = true) String address, Model model) throws Exception {
 		
-		System.out.println("DEBUG1: lastName = " + lastName);
-		System.out.println("DEBUG1: firstName = " + firstName);
-		System.out.println("DEBUG1: tel = " + tel);
-		System.out.println("DEBUG1: address = " + address);
-		
 		String uId = customerService.searchCustomerId(lastName, firstName, tel, address);
+
+		// 顧客名取得
+		String customerName = customerService.findNameByUid(uId);
+		model.addAttribute("customerName", customerName);
 		
-//		List<CustomerCallBean> callData = customerCallService.findAllDataByCid(uId);
+		// 顧客の問い合わせ情報全検索
 		String[][] callData = customerCallService.findAllDataByCid(uId);
-		
-		System.out.println("DEBUG2: callData Size = " + callData[0]);
-		
 		model.addAttribute("callData", callData);
 		
-		return "operation/s-result";
+		return "operation/inquiry-list";
 	}
 }

@@ -13,6 +13,7 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.repository.CustomerRepository;
  * 顧客情報データベースService
  * "create" 新規顧客登録
  * "SearchCustomerId" 入力された「苗字」「名前」「電話番号」「住所」をもとに顧客IDを検索
+ * "findNameByUid" ユーザIDから顧客名を検索
  */
 
 @Service
@@ -30,6 +31,10 @@ public class CustomerService {
 	}
 	
 	public String searchCustomerId(String uLastName, String uFirstName, String uTel, String uAdd) {
-		return customerRepository.searchCustomerId(uLastName, uFirstName, uTel, uAdd);
+		return customerRepository.findCustomerId(uLastName, uFirstName, uTel, uAdd);
+	}
+	
+	public String findNameByUid(@Param("uId") String uId) {
+		return customerRepository.findNameByUid(uId);
 	}
 }

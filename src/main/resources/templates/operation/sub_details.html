@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/sub_details.css" />
+<title>問い合わせ詳細</title>
+</head>
+<body>
+	<div class="gradation">
+		<h2>コールセンター顧客管理システム</h2>
+		<div class="id_position">
+			<span id="loggedas">ログイン中： <a id="user_id" href="">00000000<!--ユーザID--></a></sapn>
+        	<form role="form" method="post" th:action="@{/logout}"><button class="logout" type="submit">ログアウト</button></form>
+        </div>
+	</div>
+	
+	<div>
+		<p id="date">2018/07/04</p>
+	</div>
+	<div>
+		<p id="name">三島大社 様</p>
+	</div>
+	
+	<div class="new">
+		<input class="btn_new" type="submit" value="新規登録">
+	</div>
+
+	<form>
+		<table border>
+			<tr>
+				<th bgcolor="#87cefa" class="headline">カテゴリー</th>
+				<td class="sub_content"><input type="text"></td>
+			</tr>
+			<tr>
+				<th bgcolor="#87cefa">内容</th>
+				<td class="content"><textarea class="cont_text"></textarea></td>
+			</tr>
+		</table>
+	</form>
+	
+	<div class="close">
+		<input class="btn_close" type="submit" value="閉じる">
+	</div>
+	
+</body>
+</html>

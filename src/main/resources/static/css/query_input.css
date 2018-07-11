@@ -58,6 +58,10 @@ table tr td{
     border-color: white;
 }
 
+#category_check{
+    border-color: rgba(255, 255, 255, 0);
+}
+
 textarea{
     position: relative;
     margin: 0;

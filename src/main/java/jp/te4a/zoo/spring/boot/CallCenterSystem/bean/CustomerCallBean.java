@@ -2,6 +2,7 @@ package jp.te4a.zoo.spring.boot.CallCenterSystem.bean;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -19,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Table(name="t_call")
 public class CustomerCallBean {
 
-	// 顧客ID（最大数で自動割り振り）
+	// 問い合わせID（最大数で自動割り振り）
 	@Id
 	private String id;
 	
@@ -34,4 +35,7 @@ public class CustomerCallBean {
 	
 	// 対応する顧客ID(外部参照)
 	private String c_id;
+	
+	@ManyToOne
+	private ClassBean classBean;
 }

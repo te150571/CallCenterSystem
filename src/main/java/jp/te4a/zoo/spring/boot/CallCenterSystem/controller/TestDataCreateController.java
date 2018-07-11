@@ -64,7 +64,9 @@ public class TestDataCreateController {
 		// 分類テーブル設定
 		String[] clsName = {"依頼", "問い合わせ", "サポート", "クレーム", "その他"};
 		for(int i=0; i<clsName.length; i++) {
-			ClassBean classBean = new ClassBean("00" + (i + 1), clsName[i]);
+			ClassBean classBean = new ClassBean();
+			classBean.setId("00" + (i + 1));
+			classBean.setName(clsName[i]);
 			ClassForm classForm = new ClassForm();
 			BeanUtils.copyProperties(classBean, classForm);
 			classService.create(classForm);

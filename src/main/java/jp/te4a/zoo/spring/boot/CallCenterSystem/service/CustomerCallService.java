@@ -1,7 +1,5 @@
 package jp.te4a.zoo.spring.boot.CallCenterSystem.service;
 
-import java.util.List;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -36,27 +34,31 @@ public class CustomerCallService {
 		return customerCallForm;
 	}
 	
-	public List<CustomerCallBean> findAllDataByCid(@Param("uId") String uId) {
+//	public List<CustomerCallBean> findAllDataByCid(@Param("uId") String uId) {
+//		return customerCallRepository.findAllDataByCid(uId);
+//	}
+	
+	public String[][] findAllDataByCid(@Param("uId") String uId) {
 		return customerCallRepository.findAllDataByCid(uId);
 	}
 	
-	public List<CustomerCallBean> findByAfterDate(@Param("uId") String uId, @Param("date") String date) {
+	public String[][] findByAfterDate(@Param("uId") String uId, @Param("date") String date) {
 		return customerCallRepository.findByAfterDate(uId, date);
 	}
 	
-	public List<CustomerCallBean> findByBeforeDate(@Param("uId") String uId, @Param("date") String date) {
+	public String[][] findByBeforeDate(@Param("uId") String uId, @Param("date") String date) {
 		return customerCallRepository.findByBeforeDate(uId, date);
 	}
 	
-	public List<CustomerCallBean> findByClass(@Param("uId") String uId, @Param("classId") String classId) {
+	public String[][] findByClass(@Param("uId") String uId, @Param("classId") String classId) {
 		return customerCallRepository.findByClass(uId, classId);
 	}
 	
-	public List<CustomerCallBean> findByClassAndAfterDate(@Param("uId") String uId, @Param("classId") String classId, @Param("date") String date) {
+	public String[][] findByClassAndAfterDate(@Param("uId") String uId, @Param("classId") String classId, @Param("date") String date) {
 		return customerCallRepository.findByClassAndAfterDate(uId, classId, date);
 	}
 	
-	public List<CustomerCallBean> findByClassAndBeforeDate(@Param("uId") String uId, @Param("classId") String classId, @Param("date") String date) {
+	public String[][] findByClassAndBeforeDate(@Param("uId") String uId, @Param("classId") String classId, @Param("date") String date) {
 		return customerCallRepository.findByClassAndBeforeDate(uId, classId, date);
 	}
 }

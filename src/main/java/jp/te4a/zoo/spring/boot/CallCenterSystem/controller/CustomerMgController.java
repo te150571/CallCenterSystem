@@ -1,7 +1,5 @@
 package jp.te4a.zoo.spring.boot.CallCenterSystem.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.CustomerCallBean;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.form.SystemUserForm;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.service.AccessLogService;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.service.CustomerCallService;
@@ -75,16 +72,12 @@ public class CustomerMgController {
 		
 		String uId = customerService.searchCustomerId(lastName, firstName, tel, address);
 		
-		System.out.println("DEBUG2: userId = " + uId);
+//		List<CustomerCallBean> callData = customerCallService.findAllDataByCid(uId);
+		String[][] callData = customerCallService.findAllDataByCid(uId);
 		
-		List<CustomerCallBean> callData = customerCallService.findAllDataByCid(uId);
-//		System.out.println("DEBUG2-x:" + callData.getClass());
-//		CustomerCallBean cb = callData.get(0);
+		System.out.println("DEBUG2: callData Size = " + callData[0]);
 		
-		System.out.println("DEBUG2: callData Size = " + callData.size());
-//		System.out.println("DEBUG2: callData id = " + cb.getContents());
-		
-		model.addAttribute("calldata", callData);
+		model.addAttribute("callData", callData);
 		
 		return "operation/s-result";
 	}

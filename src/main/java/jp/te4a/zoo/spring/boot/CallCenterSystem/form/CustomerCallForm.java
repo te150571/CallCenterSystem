@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CustomerCallForm {
 
-	// 顧客ID（最大数で自動割り振り）
+	// 問い合わせID（自動割り振り）
 	@NotNull
 	@Size(max=12)
 	private String id;

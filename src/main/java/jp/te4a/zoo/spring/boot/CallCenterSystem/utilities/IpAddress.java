@@ -1,4 +1,4 @@
-package utilities;
+package jp.te4a.zoo.spring.boot.CallCenterSystem.utilities;
 
 import java.net.Inet4Address;
 import java.net.InetAddress;

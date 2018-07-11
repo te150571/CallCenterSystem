@@ -1,4 +1,4 @@
-package utilities;
+package jp.te4a.zoo.spring.boot.CallCenterSystem.utilities;
 
 import java.net.NetworkInterface;
 import java.net.SocketException;

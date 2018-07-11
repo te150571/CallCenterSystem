@@ -1,0 +1,58 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+	<title>問い合わせ登録</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.mincss" th:href="@{/webjars/bootstrap/3.3.7/bootstrap-theme.min.css}" />
+    <link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="/css/query_input.css"/>
+</head>
+<body>
+    <div class="gradation">
+			<h2>コールセンター顧客管理システム</h2>
+			<div class="id_position">
+				<span id="loggedas">ログイン中： <a id="user_id" href="">00000000<!--ユーザID--></a></sapn>
+				<form role="form" method="post" th:action="@{/logout}"><button class="logout" type="submit">ログアウト</button></form>
+			</div>
+	</div>
+	<div class="main_screen">
+
+		<form class="inquiry_form rule" method="post" th:action="@{/〇〇〇}" th:object="@{/〇〇〇}"><!--優にコントローラクラスの内容をチェックしてもらう-->
+			
+			<h3>問い合わせ登録</h3>
+			<div th:if="${param.error}" class="alert alert-danger">
+				入力内容に不備があります。
+			</div>
+			<div class="position">
+				<table>
+					<tr>
+						<td id="table_left" valign="top">
+							<b>カテゴリ</b>
+						</td>
+						<td>
+							<select>
+								<option value="依頼">依頼</option>
+								<option value="問い合わせ">問い合わせ</option>
+								<option value="サポート">サポート</option>
+								<option value="クレーム">クレーム</option>
+								<option value="その他">その他</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td id="table_left" valign="top">
+							<b>内容</b>
+						</td>
+						<td id="texts">
+							<textarea name="inquiry_input" placeholder="inquiry_input_form" required="required"></textarea>
+						</td>
+					</tr>
+				</table>
+				<input class="parts btn" type="submit" value="確認" id="btn">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

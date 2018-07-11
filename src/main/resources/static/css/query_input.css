@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+.inquiry_form{
+    width:600px;
+    height:550px;
+}
+
+h3{
+    margin-top: 5px;
+}
+
+.parts{
+    width: 300px;
+    height: 35px;
+    margin-top:10px;
+}
+
+.parts2{
+    width: 195px;
+    height: 35px;
+    margin-top:10px;
+}
+
+.parts:active {/*押したとき*/
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+.parts:hover{
+    background:  #65b3fcfd;/*ボタン色*/
+}
+
+.alert{
+	width: 300px;
+	margin: 0 auto;
+}
+
+.position{
+	margin-top:20px;
+}
+
+table{
+    margin: 0 auto;
+    text-align:left;
+    font-size:15px;
+}
+
+table tr td{
+    border: 2px solid;
+    border-color: rgb(185, 185, 185);
+}
+
+#table_left{
+    background-color: rgb(121, 121, 121);
+    color: white;
+}
+
+#table_check{
+    border-color: white;
+}
+
+textarea{
+    position: relative;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    border-color: rgba(255, 255, 255, 0);
+}
+
+#texts{
+    height: 290px;
+    padding: 0;
+}
+
+td{
+    padding: 15px 10px;
+}
+
+select{
+    width: 110px;
+    font-weight: bold;
+}

@@ -24,6 +24,12 @@ public interface CustomerCallRepository extends JpaRepository<CustomerCallBean, 
 	
 	@Query(value = "select customer.id as id, cls.name as clsName, customer.contents as contents, customer.date as date"
 			+ " from t_call customer left join t_callclass cls on customer.class_id = cls.id"
+			+ " where customer.id = :id",
+			nativeQuery = true)
+	public String[][] findDataById(@Param("id") String id);
+	
+	@Query(value = "select customer.id as id, cls.name as clsName, customer.contents as contents, customer.date as date"
+			+ " from t_call customer left join t_callclass cls on customer.class_id = cls.id"
 			+ " where customer.c_id = :uId"
 			+ " order by id asc",
 			nativeQuery = true)

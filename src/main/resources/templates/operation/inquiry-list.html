@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <title>コールセンター顧客管理システム</title>
 <link href="/css/style.css" rel="stylesheet" type="text/css">
-<link href="/css/inquiry-list_style.css" rel="stylesheet" type="text/css">
+<link href="/css/inquiry-list_style.css" rel="stylesheet"
+	type="text/css">
 <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 </head>
 
@@ -14,68 +15,94 @@
 		<div class="id_position">
 			<span id="loggedas">ログイン中： <a id="user_id posi" href="">〇〇〇〇〇<!--ユーザID--></a></span>
 		</div>
-		<form method="post" th:action="@{/logout}"><button type="submit">ログアウト</button></form>
+		<form method="post" th:action="@{/logout}">
+			<button type="submit">ログアウト</button>
+		</form>
 	</div>
-	
+
 	<div class="main_screen inquiry_screen">
 		<div class="client">
 			<span th:text="${customerName}"></span> <span>様</span>
 		</div>
 		<div>
-			<input type="submit" value="問い合わせ内容登録" class="inquiry_btn btn position1">
+			<input type="submit" value="問い合わせ内容登録"
+				class="inquiry_btn btn position1">
 		</div>
 
-		<table class="position2">
-			<tr>
-				<td class="day_date_opt">
-					<!-- 日付 --> <!--日付の絞り込みと表示順序の設定-->
-					<select name="year" id="id_year" class="time_date"></select>
-					<select name="month" id="id_month" class="time_date"></select>
-					<select name="day" id="id_day" class="time_date"></select>
-					<span><input type="radio" name="example" value="以前" checked>以前<input type="radio" name="example" value="以降">以降</span>
-				<td>
-			</tr>
+		<form method="post" th:action="@{/operation/refine}">
+			<input type="hidden" name="cId" th:value="${cId}" />
+			<input type="hidden" name="customerName" th:value="${customerName}" />
+			<table class="position2">
+				<tr>
+					<td class="day_date_opt">
+						<!-- 日付 --> <!--日付の絞り込みと表示順序の設定--> <select name="year"
+						id="id_year" class="time_date"></select> <select name="month"
+						id="id_month" class="time_date"></select> <select name="day"
+						id="id_day" class="time_date"></select> <span><input
+							type="radio" name="range" value="以前" checked>以前<input
+							type="radio" name="range" value="以降">以降</span>
+					<td>
+				</tr>
 
-			<tr>
-				<td>
-				<select name=”category” class="category_opt">
-						<option value=”all”>すべて</option>
-						<option value=”request”>依頼</option>
-						<option value=”inquiry”>問い合わせ</option>
-						<option value=”support”>サポート</option>
-						<option value=”claim”>クレーム</option>
-						<option value=”other”>その他</option>
-				</select>
-				</td>
-				<td><input type="submit" value="絞り込み" class="inquiry_btn btn"></td>
-			</tr>
-		</table>
-
-		<div>
-			<table id="table_sort" class="tablesorter" rules="all">
-				<thead>
-					<tr>
-						<th class="subject">件名</th>
-						<th class="overview">概要</th>
-						<th class="time">登録日時</th>
-					</tr>
-				</thead>
-
-				<tbody>
-					<tr th:each="callData : ${callData}">
-						<td th:text="${callData[1]}"></td>
-						<td th:text="${callData[2]}"></td>
-						<td th:text="${callData[3]}"></td>
-					</tr>
-				</tbody>
-
-
+				<tr>
+					<td><select name="category" class="category_opt">
+							<option value="すべて">すべて</option>
+							<option value="依頼">依頼</option>
+							<option value="問い合わせ">問い合わせ</option>
+							<option value="サポート">サポート</option>
+							<option value="クレーム">クレーム</option>
+							<option value="その他">その他</option>
+					</select></td>
+					<td><input type="submit" value="絞り込み" class="inquiry_btn btn"></td>
+				</tr>
 			</table>
-		</div>
+		</form>
+
+		<form name="postdetail" method="post" th:action="@{/operation/details}">
+			<input type="hidden" name="cId" th:value="${cId}" />
+			<input type="hidden" name="customerName" th:value="${customerName}" />
+			<div>
+				<table id="table_sort" class="tablesorter" rules="all">
+					<thead>
+						<tr>
+							<th class="subject">件名</th>
+							<th class="overview">概要</th>
+							<th class="time">登録日時</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:if="${callData} != null" th:each="callData : ${callData}">
+							<td th:text="${callData[1]}"><input type="hidden"
+								name="callId" th:value="${callData[0]}"></td>
+							<td><a th:id="${callData[0]}" href="#" th:text="${callData[2]}" onclick="LinkClick(this)"></a></td>
+							<td th:text="${callData[3]}"></td>
+						</tr>
+						<tr th:unless="${callData} != null">
+							<td>該当データ無し</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
 	</div>
 
 	<script type="text/javascript" src="/js/inquiry-list.js"></script>
 	<script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
+
+	<script type="text/javascript">
+		function LinkClick(ele) {
+			var f = document.forms["postdetail"];
+			var selectedCallId = document.createElement('input');
+			selectedCallId.type = 'hidden';
+			selectedCallId.name = 'selectedCallId';
+			selectedCallId.value = ele.getAttribute('id');
+			f.appendChild(selectedCallId);
+			f.method = "POST";
+			f.submit();
+			return true;
+		}
+	</script>
 
 </body>
 </html>

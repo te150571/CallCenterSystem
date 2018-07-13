@@ -21,4 +21,8 @@ public class ClassService {
 		classRepository.flush();
 		return classForm;
 	}
+	
+	public String findIdByName(String inName) {
+		return classRepository.findIdByName(inName);
+	}
 }

@@ -38,6 +38,10 @@ public class CustomerCallService {
 //		return customerCallRepository.findAllDataByCid(uId);
 //	}
 	
+	public String[][] findDataById(@Param("id") String id){
+		return customerCallRepository.findDataById(id);
+	}
+	
 	public String[][] findAllDataByCid(@Param("uId") String uId) {
 		return customerCallRepository.findAllDataByCid(uId);
 	}

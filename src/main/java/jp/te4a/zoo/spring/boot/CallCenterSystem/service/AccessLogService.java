@@ -10,10 +10,8 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.repository.AccessLogRepository;
 
 /*
  * AccessLogデータベースService
- * "create" アクセスログ追加
- * "searchLastAccessById" 対象ユーザIDの最終ログインログのIDを返す
- * "countLoginMiss" 対象ユーザIDでの直近5回のログイン成否を返す（ログインロック用）
- * "updateAccResult" 対象ユーザIDの最終ログインログの成否フラグを更新する
+ * "create" データ追加
+ * 各メソッドはRepository参照
  */
 
 @Service

@@ -17,14 +17,33 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.SystemUserBean;
 @Transactional
 public interface SystemUserRepository extends JpaRepository<SystemUserBean, String> {
 	
-	@Query("select user.password from SystemUserBean user where user.id = :uid")
-	public String getPassword(@Param("uid") String uid);
+	/*
+	 * ユーザIDでパスワードを取得
+	 * uId	: ユーザID
+	 * 
+	 * 戻り値	: エンコード済みパスワード(String)
+	 */
+	@Query("select user.password from SystemUserBean user where user.id = :uId")
+	public String getPassword(@Param("uId") String uId);
 	
+	/*
+	 * ユーザのパスワードを変更する
+	 * uId		: ユーザID
+	 * newpass	: 新しいエンコード済みパスワード
+	 * 
+	 * 戻り値	:　なし
+	 */
 	@Modifying
-	@Query("update SystemUserBean user set user.password = :newpass where user.id = :uid")
-	public void updatePassword(@Param("uid") String uid, @Param("newpass") String pass);
+	@Query("update SystemUserBean user set user.password = :newpass where user.id = :uId")
+	public void updatePassword(@Param("uId") String uId, @Param("newpass") String newpass);
 	
+	/*
+	 * 初回アクセスフラグを0にする
+	 * uId	: ユーザID
+	 * 
+	 * 戻り値	:　なし
+	 */
 	@Modifying
-	@Query("update SystemUserBean user set user.firstAccFlag = 0 where user.id = :uid")
-	public void updateFirstAccFlag(@Param("uid") String uid);
+	@Query("update SystemUserBean user set user.firstAccFlag = 0 where user.id = :uId")
+	public void updateFirstAccFlag(@Param("uId") String uId);
 }

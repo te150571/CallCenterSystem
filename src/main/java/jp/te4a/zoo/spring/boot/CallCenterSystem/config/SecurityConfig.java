@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 
 /*
  * ログインコンフィグ
+ * いじらないで
  */
 
 @EnableWebSecurity

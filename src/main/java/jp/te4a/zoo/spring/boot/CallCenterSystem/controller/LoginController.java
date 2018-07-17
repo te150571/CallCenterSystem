@@ -4,8 +4,6 @@ import java.util.Date;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,6 +14,8 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.service.LockedIdService;
 
 /*
  * ログイン操作コントローラ
+ * アドレスは /
+ * ログインロック機能については保留中
  */
 
 @Controller
@@ -39,13 +39,13 @@ public class LoginController {
 		return "login/form";
 	}
 	
-	// ログイン成功時
+	// ログイン成功時 ( "/success" )
 	@RequestMapping("success")
 	String loginSuccess() {
 		return "redirect:operation";
 	}
 	
-	// ログイン失敗時
+	// ログイン失敗時 ( "/failed" )
 	@RequestMapping("failed")
 	String loginFailed() {
 		// アクセスしてきたIDが連続で5回ミスしていたらロックする

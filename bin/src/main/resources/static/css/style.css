@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body{
-    overflow: hidden;
+    overflow: auto;
     font-family: "Meiryo", sans-serif;
     margin: 0px;
 }
@@ -40,9 +40,6 @@ h2{
     top: 275px;
     text-align: center;
     margin: 0 auto;
-    /*
-    width: 1080px;
-    */
 }
 
 .btn{   /* ボタンのデザイン設定 */

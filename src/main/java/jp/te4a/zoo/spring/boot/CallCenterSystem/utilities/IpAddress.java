@@ -24,7 +24,7 @@ public class IpAddress {
 	}
 	private InetAddress getInetAddress4() throws UnknownHostException,SocketException {
 		InetAddress rtnInet = null;
-		Enumeration  netSet;//集合内の列挙操作用
+		Enumeration<NetworkInterface>  netSet;//集合内の列挙操作用
 		netSet = NetworkInterface.getNetworkInterfaces();
 		while(netSet.hasMoreElements()){//すべてのインターフェイスを走査
 			NetworkInterface nInterface = (NetworkInterface) netSet.nextElement();

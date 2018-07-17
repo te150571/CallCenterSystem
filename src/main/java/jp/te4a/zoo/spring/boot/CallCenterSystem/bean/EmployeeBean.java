@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 /*
  * 社員データベースBean
+ * 使わない 削除予定
  */
 
 @Data

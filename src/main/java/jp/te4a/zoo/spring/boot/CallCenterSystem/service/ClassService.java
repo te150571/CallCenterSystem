@@ -8,6 +8,8 @@ import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.ClassBean;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.form.ClassForm;
 import jp.te4a.zoo.spring.boot.CallCenterSystem.repository.ClassRepository;
 
+
+
 @Service
 public class ClassService {
 	
@@ -20,5 +22,9 @@ public class ClassService {
 		classRepository.save(classBean);
 		classRepository.flush();
 		return classForm;
+	}
+	
+	public String findIdByName(String inName) {
+		return classRepository.findIdByName(inName);
 	}
 }

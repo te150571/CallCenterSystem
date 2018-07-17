@@ -18,3 +18,9 @@
 .bold {
 	font-weight: bold;
 }
+
+.link{
+	margin: 200px auto;
+	font-size: 30px;
+	text-align: center;
+}

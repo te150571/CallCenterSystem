@@ -36,9 +36,10 @@ public class PasswaordController {
 		return "operation/pass-change";
 	}
 
-	// パスワード変更処理
+	// パスワード変更処理( "/password/pass-change" )
 	@PostMapping("pass-change")
 	String passChange(@RequestParam("password") String password, @RequestParam("new_password") String newPassword, @RequestParam("new_password_check") String newPasswordCheck) {
+		// ログイン情報からユーザIDを取得
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String uid = userDetails.getUsername();
 		// 初回変更であれば初回ログインフラグを更新

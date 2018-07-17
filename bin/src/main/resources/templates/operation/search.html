@@ -14,7 +14,8 @@
         <h2>コールセンター顧客管理システム</h2>
         <div class="id_position">
             <span id="loggedas">ログイン中： <a id="user_id" href="">00000000<!--ユーザID--></a></sapn>
-            <form role="form" method="post" th:action="@{/logout}"><button class="logout" type="submit">ログアウト</button></form>
+            <!-- <span><a class="logout" rel="nofollow" data-method="post" href="">ログアウト</a></span> -->
+            <form method="post" th:action="@{/logout}"><button type="submit">ログアウト</button></form>
         </div>
     </div>
     
@@ -22,13 +23,16 @@
     <div class="main_screen search_screen">
         <div>  <a class="registration_button" href=""><img src="/img/add.png"> 新規顧客登録</a></div>
         <div id="search_table">
-            <table >
-                <tr><th>氏名</th><th colspan="2"><input type="text" class="box_size"> <!--氏名--></th></tr>
-                <tr><th>電話番号</th><th colspan="2"><input type="text" class="box_size"> <!--電話番号--></th></tr>
-                <tr><th>住所</th><th colspan="2"><input type="text" class="box_size"> <!--住所--></th>
+        	<form method="post" th:action="@{operation/searching}">
+        		<table >
+                <tr><th>苗字</th><th colspan="2"><input type="text" name="lastName" class="box_size"> <!--氏名--></th></tr>
+                <tr><th>名前</th><th colspan="2"><input type="text" name="firstName" class="box_size"> <!--氏名--></th></tr>
+                <tr><th>電話番号</th><th colspan="2"><input type="text" name="tel" class="box_size"> <!--電話番号--></th></tr>
+                <tr><th>住所</th><th colspan="2"><input type="text" name="address" class="box_size"> <!--住所--></th>
                 
-                <tr><th colspan="2" class="button_position"><span><input type="submit" value="検索" class="search_button"></span></th></tr>
+                <tr><th colspan="2" class="button_position"><span><input type="submit" value="検索" class="search_button btn"></span></th></tr>
             </table>
+        	</form>
 
             <!-- 「氏名・電話番号・住所」を表示 -->
             <table class="result_list"  rules="all">

@@ -1,0 +1,78 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+	<title>新規顧客登録</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.mincss" th:href="@{/webjars/bootstrap/3.3.7/bootstrap-theme.min.css}" />
+    <link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="/css/client.css"/>
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div class="gradation">
+            <h2>コールセンター顧客管理システム</h2>
+            <div class="id_position">
+                <span id="loggedas">ログイン中： <a id="user_id" href="">00000000<!--ユーザID--></a></sapn>
+                <form role="form" method="post" th:action="@{/logout}"><button class="logout" type="submit">ログアウト</button></form>
+            </div>
+	</div>
+	<div class="main_screen">
+
+		<form class="inquiry_form inputform rule" name="form1" method="post" th:action="@{/〇〇〇}" th:object="${〇〇〇}">
+			
+			<h3>新規顧客登録</h3>
+			<div class="position">
+				<table>
+					<tr>
+						<td id="table_left" valign="top">
+							<b>氏名</b>
+						</td>
+						<td>
+							<input type="text" id="boxs" required>
+						</td>
+					</tr>
+
+					<tr>
+						<td id="table_left" valign="top">
+							<b>生年月日</b>
+						</td>
+						<td>
+							<select name="year" id="id_year" class="time_date"></select> 年
+                            <select name="month" id="id_month" class="time_date"></select> 月
+                            <select name="day" id="id_day" class="time_date"></select> 日
+						</td>
+                    </tr>
+                    
+                    <tr>
+						<td id="table_left" valign="top">
+							<b>電話番号</b>
+						</td>
+						<td>
+							<input type="tel" id="boxs" name="tel" required>
+						</td>
+                    </tr>
+                    
+                    <tr>
+						<td id="table_left" valign="top" rowspan="2">
+							<b>住所</b>
+						</td>
+						<td>
+							 〒<input type="text" id="boxs" name="addresscode" maxlength="7" required>
+						</td>
+                    </tr>
+                    <tr>
+                        <td><textarea required></textarea></td>
+                    </tr>
+                </table>
+
+                <div>
+					<input class="parts btn" type="submit" value="確認">
+				</div>
+			</div>
+		</form>
+    </div>
+    <script type="text/javascript" src="/js/client-input.js"></script>
+    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+</body>
+</html>

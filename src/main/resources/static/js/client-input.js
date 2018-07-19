@@ -38,20 +38,20 @@ $(function() {
 });
 
 $(document).ready(function(){
-  $('input[name="tel"]').on('keyup',function(){
-    var checkval = $('input[name="tel"]').val().replace(/[！-～]/g,
+  $('textarea[name="tel"]').on('keyup',function(){
+    var checkval = $('textarea[name="tel"]').val().replace(/[！-～]/g,
       function (tmpStr) {
         return String.fromCharCode(tmpStr.charCodeAt(0) - 0xFEE0);
       }
     );
-    $('input[name="tel"]').val(checkval.replace(/[^0-9]/g, ''));
+    $('textarea[name="tel"]').val(checkval.replace(/[^0-9]/g, ''));
   })
-  $('input[name="addresscode"]').on('keyup',function(){
-    var checkval = $('input[name="addresscode"]').val().replace(/[！-～]/g,
+  $('textarea[name="addresscode"]').on('keyup',function(){
+    var checkval = $('textarea[name="addresscode"]').val().replace(/[！-～]/g,
       function (tmpStr) {
         return String.fromCharCode(tmpStr.charCodeAt(0) - 0xFEE0);
       }
     );
-    $('input[name="addresscode"]').val(checkval.replace(/[^0-9]/g, ''));
+    $('textarea[name="addresscode"]').val(checkval.replace(/[^0-9]/g, ''));
   })
 })

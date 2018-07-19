@@ -19,50 +19,61 @@
 	</div>
 	<div class="main_screen">
 
-		<form class="inquiry_form inputform rule" name="form1" method="post" th:action="@{/〇〇〇}" th:object="${〇〇〇}">
+		<form class="client_form rule" name="form1" method="post" th:action="@{/〇〇〇}" th:object="${〇〇〇}">
 			
 			<h3>新規顧客登録</h3>
 			<div class="position">
 				<table>
-					<tr>
-						<td id="table_left" valign="top">
+					<tr id="name_tr">
+						<td id="table_left">
 							<b>氏名</b>
 						</td>
-						<td>
-							<input type="text" id="boxs" required>
+						<td id="table_righ">
+							　姓 <textarea id="names" required></textarea>
+							　名 <textarea id="names" required></textarea>
 						</td>
 					</tr>
 
-					<tr>
-						<td id="table_left" valign="top">
+					<tr id="name_tr">
+						<td id="table_left">
+							<b>フリガナ</b>
+						</td>
+						<td id="table_righ">
+							　姓 <textarea id="names" required></textarea>
+							　名 <textarea id="names" required></textarea>
+						</td>
+					</tr>
+
+					<tr id="birthday_tr">
+						<td id="table_left">
 							<b>生年月日</b>
 						</td>
-						<td>
-							<select name="year" id="id_year" class="time_date"></select> 年
+						<td id="table_right">
+							　<select name="year" id="id_year" class="time_date"></select> 年
                             <select name="month" id="id_month" class="time_date"></select> 月
                             <select name="day" id="id_day" class="time_date"></select> 日
 						</td>
                     </tr>
                     
-                    <tr>
-						<td id="table_left" valign="top">
+                    <tr id="tel_tr">
+						<td id="table_left">
 							<b>電話番号</b>
 						</td>
-						<td>
-							<input type="tel" id="boxs" name="tel" required>
+						<td id="table_right">
+							<textarea id="tel" name="tel" required></textarea>
 						</td>
                     </tr>
                     
-                    <tr>
-						<td id="table_left" valign="top" rowspan="2">
+                    <tr id="addresscode_tr">
+						<td id="table_left" rowspan="2">
 							<b>住所</b>
 						</td>
-						<td>
-							 〒<input type="text" id="boxs" name="addresscode" maxlength="7" required>
+						<td id="table_right">
+							〒<textarea id="addresscode" name="addresscode" maxlength="7" required></textarea>
 						</td>
                     </tr>
-                    <tr>
-                        <td><textarea required></textarea></td>
+                    <tr id="address_tr">
+                        <td id="table_right"><textarea id="address" required></textarea></td>
                     </tr>
                 </table>
 

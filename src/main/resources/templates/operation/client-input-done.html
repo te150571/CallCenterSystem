@@ -8,10 +8,15 @@
 <body>
 	<div class="gradation">
         <h2>コールセンター顧客管理システム</h2>
-        <div class="id_position">
-            <span id="loggedas">ログイン中： <a id="user_id" href="">00000000<!--ユーザID--></a></sapn>
-            <form role="form" method="post" th:action="@{/logout}"><button class="logout" type="submit">ログアウト</button></form>
-        </div>
+        <form name="logoutLink" method="post" th:action="@{/logout}">
+			<div class="id_position">
+				<span id="loggedas">ログイン中： <a id="user_id" href="#"
+					th:text="${uId}"> <!--ユーザID-->
+				</a>
+				</span> <a class="logout" href="#" onclick="LogoutLink()">ログアウト</a>
+			</div>
+		</form>
+		
 		<div class="place">
 			<div class="red">
 				<p class="rap">登録が完了しました。</p>
@@ -25,5 +30,14 @@
             <input class="btn" type="submit" value="詳細画面へ">
         </div>
 	</div>
+	
+	<script type="text/javascript">
+		function LogoutLink() {
+			var f = document.forms["logoutLink"];
+			f.method = "POST";
+			f.submit();
+			return true;
+		}
+	</script>
 </body>
 </html>

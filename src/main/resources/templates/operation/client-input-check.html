@@ -18,7 +18,7 @@
 	</div>
 	<div class="main_screen">
 
-		<form class="inquiry_form rule" method="post" th:action="@{}" th:object="${}">
+		<form class="inquiry_form rule" method="post" th:action="@{}" th:object="${customerForm}">
 			
 			<h3>新規顧客確認</h3>
 			<div class="position">
@@ -28,7 +28,7 @@
 							<b>氏名</b>
 						</td>
 						<td>
-							<input type="text" id="boxs" readonly>
+							<input type="text" id="boxs" readonly th:value="${cutomerForm.lastname">
 						</td>
 					</tr>
 

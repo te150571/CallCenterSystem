@@ -1,8 +1,11 @@
 package jp.te4a.zoo.spring.boot.CallCenterSystem.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.CustomerBean;
@@ -27,6 +30,14 @@ public class CustomerService {
 		BeanUtils.copyProperties(customerForm, customerBean);
 		customerRepository.save(customerBean);
 		customerRepository.flush();
+		return customerForm;
+	}
+	
+	public CustomerForm findById(String cId) {
+		Optional<CustomerBean> customerOpt = customerRepository.findById(cId);
+		CustomerBean customer = customerOpt.orElseThrow(() -> new UsernameNotFoundException("The request user is not found."));
+		CustomerForm customerForm = new CustomerForm();
+		BeanUtils.copyProperties(customer, customerForm);
 		return customerForm;
 	}
 	

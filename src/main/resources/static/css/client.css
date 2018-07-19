@@ -1,8 +1,12 @@
 @charset "UTF-8";
 
-.inquiry_form{
+.client_form{
     width:600px;
-    height:520px;
+    height:450px;
+}
+
+.main_screen{
+    top: 230px;
 }
 
 h3{
@@ -38,48 +42,75 @@ h3{
 	margin-top:20px;
 }
 
+select{
+    width: 110px;
+    font-weight: bold;
+}
+
 table{
     margin: 0 auto;
     text-align:left;
     font-size:15px;
 }
 
-table tr td{
+table,tr,td{
     border: 2px solid;
     border-color: rgb(185, 185, 185);
+}
+
+#name_tr,#birthday_tr{
+    height: 40px;
+}
+
+#tel_tr,#addresscode_tr{
+    height: 30px;
+}
+
+#address_tr{
+    height: 100px;
 }
 
 #table_left{
     background-color: rgb(121, 121, 121);
     color: white;
+    width: 100px;
 }
 
 #table_check{
     border-color: white;
 }
 
-#boxs{
-    border-color: rgba(255, 255, 255,0);
+#table_right{
+    width: 450px;
+}
+
+td,textarea{
+    margin: 0px;
+    padding: 0px;
 }
 
 textarea{
     position: relative;
-    margin: 0;
-    height: 100%;
+    border-color: rgba(255,255,255,0);
+}
+
+#names{
+    border-color:black;
+    height: 30px;
+    width: 170px;
+}
+
+#tel{
+    height: 30px;
     width: 100%;
-    border-color: rgba(255, 255, 255,0);
 }
 
-#texts{
-    height: 290px;
-    padding: 0;
+#addresscode{
+    height: 30px;
+    width: 96.6%;
 }
 
-td{
-    padding: 15px 10px;
-}
-
-select{
-    width: 110px;
-    font-weight: bold;
+#address{
+    height: 100px;
+    width: 100%;
 }

@@ -41,10 +41,12 @@ public class MgSysMainController {
 
 	// ログイン後に表示
 	@RequestMapping
-	String list() {
+	String list(Model model) {
 		// 初回ログインであればページパスワード変更画面を表示
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String uId = userDetails.getUsername();
+		
+		model.addAttribute("uId", uId);
 
 		// ログイン成功時アクセスログの成功フラグを1にする
 		int logId = accessLogService.searchLastAccessByUId(uId);
@@ -60,10 +62,18 @@ public class MgSysMainController {
 
 	// 顧客問い合わせ情報検索実行( "operation/searching" )
 	@RequestMapping("searching")
-	String saerchResult(@RequestParam("lastName") String lastName, @RequestParam("firstName") String firstName, @RequestParam("tel") String tel, @RequestParam("address") String address, Model model) throws Exception {
+	String saerchResult(@RequestParam(name = "cId", required = false) String cId,
+			@RequestParam(name = "lastName", required = false) String lastName,
+			@RequestParam(name = "firstName", required = false) String firstName,
+			@RequestParam(name = "tel", required = false) String tel,
+			@RequestParam(name = "address", required = false) String address,
+			@RequestParam(name = "uId" , required = true) String uId,
+			Model model) throws Exception {
+		
+		model.addAttribute("uId", uId);
 
 		// 名字、名前、電話番号、住所から顧客IDを検索
-		String cId = customerService.searchCustomerId(lastName, firstName, tel, address);
+		if(cId == null) cId = customerService.searchCustomerId(lastName, firstName, tel, address);
 		model.addAttribute("cId", cId); // 顧客IDをmodelに追加
 
 		// 顧客IDから顧客名取得
@@ -82,11 +92,21 @@ public class MgSysMainController {
 
 	// 顧客問い合わせ情報絞り込み( "operation/refine" )
 	@RequestMapping("refine")
-	String refineResult(@RequestParam("cId") String cId, @RequestParam("customerName") String customerName, @RequestParam("year") String year, @RequestParam("month") String month, @RequestParam("day") String day, @RequestParam("range") String range, @RequestParam("category") String category, Model model) {
+	String refineResult(@RequestParam(name = "cId", required = true) String cId,
+			@RequestParam(name = "customerName", required = true) String customerName,
+			@RequestParam(name = "year", required = true) String year,
+			@RequestParam(name = "month", required = true) String month,
+			@RequestParam(name = "day", required = true) String day,
+			@RequestParam(name = "range", required = true) String range,
+			@RequestParam(name = "category", required = true) String category,
+			@RequestParam(name = "uId", required = true) String uId,
+			Model model) {
 
 		// 顧客IDと名前をmodelに追加
 		model.addAttribute("cId", cId);
 		model.addAttribute("customerName", customerName);
+		
+		model.addAttribute("uId", uId);
 		
 		// 日付を成型
 		String inDay = year + "/" + month + "/" + day;
@@ -121,11 +141,17 @@ public class MgSysMainController {
 	
 	// 問い合わせの詳細表示 ( "operation/details" )
 	@RequestMapping("details")
-	String details(@RequestParam("cId") String cId, @RequestParam("customerName") String customerName, @RequestParam("selectedCallId") String selectedCallId, Model model) {
+	String details(@RequestParam(name = "cId", required = true) String cId,
+			@RequestParam(name = "customerName", required = true) String customerName,
+			@RequestParam(name = "selectedCallId", required = true) String selectedCallId,
+			@RequestParam(name = "uId", required = true) String uId,
+			Model model) {
 		
 		// 顧客IDと名前をmodelに追加
 		model.addAttribute("cId", cId);
 		model.addAttribute("customerName", customerName);
+		
+		model.addAttribute("uId", uId);
 		
 		// 問い合わせIDから一件のデータを取得
 		String[][] selectedCallData = customerCallService.findDataById(selectedCallId);

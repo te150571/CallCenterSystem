@@ -39,17 +39,19 @@
 						<td id="table_righ">
 							　姓 <textarea id="names" readonly></textarea>
 							　名 <textarea id="names" readonly></textarea>
+						<td>
+							<input type="text" id="boxs" readonly th:value="${cutomerForm.lastname">
 						</td>
 					</tr>
 
-					<tr id="birthday_tr">
-						<td id="table_left">
+					<tr>
+						<td id="table_left" valign="top">
 							<b>生年月日</b>
 						</td>
-						<td id="table_right">
-							　<select name="year" id="id_year" class="time_date"></select> 年
-							<select name="month" id="id_month" class="time_date"></select> 月
-							<select name="day" id="id_day" class="time_date"></select> 日
+						<td>
+							<select name="year" id="id_year" class="time_date"></select> 年
+                            <select name="month" id="id_month" class="time_date"></select> 月
+                            <select name="day" id="id_day" class="time_date"></select> 日
 						</td>
 					</tr>
 					

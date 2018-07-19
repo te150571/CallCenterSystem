@@ -16,10 +16,10 @@
 	</div>
 	
 	<div>
-		<p id="date">2018/07/04</p>
+		<p id="date" th:text="${selectedCallData[0][3]}"></p>
 	</div>
 	<div>
-		<p id="name">三島大社 様</p>
+		<p id="name"><span th:text="${customerName}"></span><span>様</span></p>
 	</div>
 	
 	<div class="new">
@@ -27,14 +27,16 @@
 	</div>
 
 	<form>
-		<table border>
+		<input type="hidden" name="cId" th:value="${cId}" />
+		<input type="hidden" name="customerName" th:value="${customerName}" />
+		<table>
 			<tr>
 				<th bgcolor="#87cefa" class="headline">カテゴリー</th>
-				<td class="sub_content"><input type="text"></td>
+				<td class="sub_content" th:text="${selectedCallData[0][1]}"></td>
 			</tr>
 			<tr>
 				<th bgcolor="#87cefa">内容</th>
-				<td class="content"><textarea class="cont_text"></textarea></td>
+				<td class="content"><textarea class="cont_text" th:text="${selectedCallData[0][2]}"></textarea></td>
 			</tr>
 		</table>
 	</form>

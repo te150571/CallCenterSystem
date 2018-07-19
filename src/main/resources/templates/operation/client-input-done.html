@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/css/regist-done.css" />
+<title>顧客内容登録完了画面</title>
+</head>
+<body>
+	<div class="gradation">
+        <h2>コールセンター顧客管理システム</h2>
+        <div class="id_position">
+            <span id="loggedas">ログイン中： <a id="user_id" href="">00000000<!--ユーザID--></a></sapn>
+            <form role="form" method="post" th:action="@{/logout}"><button class="logout" type="submit">ログアウト</button></form>
+        </div>
+		<div class="place">
+			<div class="red">
+				<p class="rap">登録が完了しました。</p>
+			</div>
+        </div>
+        
+        <div class="sarchLink" >
+            <input class="btn" type="submit" value="検索画面へ">
+        </div>
+        <div class="subLink">
+            <input class="btn" type="submit" value="詳細画面へ">
+        </div>
+	</div>
+</body>
+</html>

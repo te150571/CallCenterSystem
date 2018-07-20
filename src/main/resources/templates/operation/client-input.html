@@ -23,7 +23,7 @@
 	</div>
 	<div class="main_screen">
 
-		<form class="client_form rule" name="form1" method="post" th:action="@{/〇〇〇}" th:object="${〇〇〇}">
+		<form class="client_form rule" name="customer" method="post" th:action="@{customer/check}" th:object="${customerForm}">
 			
 			<h3>新規顧客登録</h3>
 			<div class="position">
@@ -33,8 +33,8 @@
 							<b>氏名</b>
 						</td>
 						<td id="table_righ">
-							　姓 <textarea id="names" required></textarea>
-							　名 <textarea id="names" required></textarea>
+							　姓 <textarea id="lastname" required></textarea>
+							　名 <textarea id="firstname" required></textarea>
 						</td>
 					</tr>
 
@@ -43,8 +43,8 @@
 							<b>フリガナ</b>
 						</td>
 						<td id="table_righ">
-							　姓 <textarea id="names" required></textarea>
-							　名 <textarea id="names" required></textarea>
+							　姓 <textarea id="lastname_kana" required></textarea>
+							　名 <textarea id="firstname_kana" required></textarea>
 						</td>
 					</tr>
 
@@ -82,7 +82,7 @@
                 </table>
 
                 <div>
-					<input class="parts btn" type="submit" value="確認">
+					<input class="parts btn" type="submit" onClick="GenerateBirthday()" value="確認">
 				</div>
 			</div>
 		</form>
@@ -96,6 +96,15 @@
 			f.method = "POST";
 			f.submit();
 			return true;
+		}
+		
+		function GenerateBirthday() {
+			var forms = document.forms["customer"];
+			var birthday = document.createElement('input');
+			birthday.type = 'hidden';
+			birthday.name = 'selectedCallId';
+			birthday.value = document.getElementById('id_year') + '/' + document.getElementById('id_month') + '/' + document.getElementById('id_day');
+			f.appendChild(selectedCallId);
 		}
 	</script>
 </body>

@@ -34,6 +34,9 @@ public class CustomerForm {
 	@Size(max=20)
 	private String firstname;
 
+	// 郵便番号
+	private String addresscode;
+	
 	// 住所
 	@Size(max=255)
 	private String address;

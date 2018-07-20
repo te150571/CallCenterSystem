@@ -21,7 +21,7 @@
 		</form>
 	</div>
 	<div class="main_screen">
-		<form class="inquiry_form rule" method="post" th:action="@{}" th:object="${}">
+		<form class="inquiry_form rule" method="post" th:action="@{customer/confirm}" th:object="${customerForm}">
 			
 			<h3>新規顧客確認</h3>
 			<div class="position">
@@ -31,8 +31,8 @@
 							<b>氏名</b>
 						</td>
 						<td id="table_righ">
-							　姓 <textarea id="names" readonly></textarea>
-							　名 <textarea id="names" readonly></textarea>
+							　姓 <textarea id="names" th:value="${customerForm.lastname}" readonly></textarea>
+							　名 <textarea id="names" th:value="${customerForm.firstname}" readonly></textarea>
 						</td>
 					</tr>
 
@@ -41,10 +41,8 @@
 							<b>フリガナ</b>
 						</td>
 						<td id="table_righ">
-							　姓 <textarea id="names" readonly></textarea>
-							　名 <textarea id="names" readonly></textarea>
-						<td>
-							<input type="text" id="boxs" readonly th:value="${cutomerForm.lastname">
+							　姓 <textarea id="names" th:value="${customerForm.lastname_kana}" readonly></textarea>
+							　名 <textarea id="names" th:value="${customerForm.firstname_kana}" readonly></textarea>
 						</td>
 					</tr>
 
@@ -64,7 +62,7 @@
 							<b>電話番号</b>
 						</td>
 						<td id="table_right">
-							<textarea id="tel" name="tel" readonly></textarea>
+							<textarea id="tel" name="tel" th:value="${customerForm.tel}" readonly></textarea>
 						</td>
 					</tr>
 					
@@ -73,11 +71,11 @@
 							<b>住所</b>
 						</td>
 						<td id="table_right">
-							〒<textarea id="addresscode" name="addresscode" maxlength="7" readonly></textarea>
+							〒<textarea id="addresscode" name="addresscode" maxlength="7" th:value="${customerForm.addresscode}" readonly></textarea>
 						</td>
 					</tr>
 					<tr id="address_tr">
-						<td id="table_right"><textarea id="address" readonly></textarea></td>
+						<td id="table_right"><textarea id="address" th:value = "${customerForm.address}"  readonly></textarea></td>
 					</tr>
 				</table>
 

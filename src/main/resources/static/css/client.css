@@ -5,21 +5,17 @@
     height:450px;
 }
 
-.main_screen{
-    top: 230px;
-}
-
 h3{
     margin-top: 5px;
 }
 
-.parts{
+.btn{
     width: 300px;
     height: 35px;
     margin-top:20px;
 }
 
-.parts2{
+.check_btn{
     width: 195px;
     height: 35px;
     margin-top:10px;
@@ -101,11 +97,13 @@ textarea{
 }
 
 #tel{
+    border-color: rgba(255,255,255,0);
     height: 30px;
     width: 100%;
 }
 
 #addresscode{
+    border-color: rgba(255,255,255,0);
     height: 30px;
     width: 96.6%;
 }

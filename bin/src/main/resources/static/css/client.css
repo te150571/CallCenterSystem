@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+.client_form{
+    width:600px;
+    height:450px;
+}
+
+.main_screen{
+    top: 230px;
+}
+
+h3{
+    margin-top: 5px;
+}
+
+.parts{
+    width: 300px;
+    height: 35px;
+    margin-top:20px;
+}
+
+.parts2{
+    width: 195px;
+    height: 35px;
+    margin-top:10px;
+}
+
+.parts:active {/*押したとき*/
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+.parts:hover{
+    background:  #65b3fcfd;/*ボタン色*/
+}
+
+.alert{
+	width: 300px;
+	margin: 0 auto;
+}
+
+.position{
+	margin-top:20px;
+}
+
+select{
+    width: 110px;
+    font-weight: bold;
+}
+
+table{
+    margin: 0 auto;
+    text-align:left;
+    font-size:15px;
+}
+
+table,tr,td{
+    border: 2px solid;
+    border-color: rgb(185, 185, 185);
+}
+
+#name_tr,#birthday_tr{
+    height: 40px;
+}
+
+#tel_tr,#addresscode_tr{
+    height: 30px;
+}
+
+#address_tr{
+    height: 100px;
+}
+
+#table_left{
+    background-color: rgb(121, 121, 121);
+    color: white;
+    width: 100px;
+}
+
+#table_check{
+    border-color: white;
+}
+
+#table_right{
+    width: 450px;
+}
+
+td,textarea{
+    margin: 0px;
+    padding: 0px;
+}
+
+textarea{
+    position: relative;
+    border-color: rgba(255,255,255,0);
+}
+
+#names{
+    border-color:black;
+    height: 30px;
+    width: 170px;
+}
+
+#tel{
+    height: 30px;
+    width: 100%;
+}
+
+#addresscode{
+    height: 30px;
+    width: 96.6%;
+}
+
+#address{
+    height: 100px;
+    width: 100%;
+}

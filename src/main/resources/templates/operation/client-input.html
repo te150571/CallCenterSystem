@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.mincss" th:href="@{/webjars/bootstrap/3.3.7/bootstrap-theme.min.css}" />
     <link rel="stylesheet" href="/css/style.css" />
 	<link rel="stylesheet" href="/css/client.css"/>
-	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
     <div class="gradation">
@@ -26,31 +26,31 @@
 			<h3>新規顧客登録</h3>
 			<div class="position">
 				<table>
-					<tr id="name_tr">
-						<td id="table_left">
+					<tr class="name_tr">
+						<td class="table_left">
 							<b>氏名</b>
 						</td>
-						<td id="table_righ">
-							　姓 <input type="text" id="names" required>
-							　名 <input type="text" id="names" required>
+						<td class="table_righ">
+							　姓 <input type="text" class="names" required>
+							　名 <input type="text" class="names" required>
 						</td>
 					</tr>
 
-					<tr id="name_tr">
-						<td id="table_left">
+					<tr class="name_tr">
+						<td class="table_left">
 							<b>フリガナ</b>
 						</td>
-						<td id="table_righ">
-							　セイ <input type="text" id="names" required>
-							　メイ <input type="text" id="names" required>
+						<td class="table_righ">
+							　セイ <input type="text" class="names" required>
+							　メイ <input type="text" class="names" required>
 						</td>
 					</tr>
 
 					<tr id="birthday_tr">
-						<td id="table_left">
+						<td class="table_left">
 							<b>生年月日</b>
 						</td>
-						<td id="table_right">
+						<td class="table_right">
 							　<select name="year" id="id_year" class="time_date"></select> 年
                             <select name="month" id="id_month" class="time_date"></select> 月
                             <select name="day" id="id_day" class="time_date"></select> 日
@@ -58,24 +58,24 @@
                     </tr>
                     
                     <tr id="tel_tr">
-						<td id="table_left">
+						<td class="table_left">
 							<b>電話番号</b>
 						</td>
-						<td id="table_right">
+						<td class="table_right">
 							<input type="text" id="tel" name="tel" required>
 						</td>
                     </tr>
                     
                     <tr id="addresscode_tr">
-						<td id="table_left" rowspan="2">
+						<td class="table_left" rowspan="2">
 							<b>住所</b>
 						</td>
-						<td id="table_right">
+						<td class="table_right">
 							〒<input type="text" id="addresscode" name="addresscode" maxlength="7" required>
 						</td>
                     </tr>
                     <tr id="address_tr">
-                        <td id="table_right"><textarea id="address" required></textarea></td>
+                        <td class="table_right"><textarea id="address" required></textarea></td>
                     </tr>
                 </table>
 
@@ -86,6 +86,6 @@
 		</form>
     </div>
     <script type="text/javascript" src="/js/client-input.js"></script>
-    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
 </body>
 </html>

@@ -54,7 +54,11 @@ table,tr,td{
     border-color: rgb(185, 185, 185);
 }
 
-.name_tr,#birthday_tr{
+.name_tr{
+    height: 30px;
+}
+
+#birthday_tr{
     height: 40px;
 }
 

@@ -9,29 +9,31 @@
 <body>
 	<div class="gradation">
 		<h2>コールセンター顧客管理システム</h2>
-		<div class="id_position">
-			<span id="loggedas">ログイン中： <a id="user_id" href="">00000000<!--ユーザID--></a>
-			</sapn> <!-- <span><a class="logout" rel="nofollow" data-method="post" href="">ログアウト</a></span> -->
-				<form method="post" th:action="@{/logout}">
-					<button type="submit">ログアウト</button>
-				</form>
-		</div>
+		<form name="logoutLink" method="post" th:action="@{/logout}">
+			<div class="id_position">
+				<span id="loggedas">ログイン中： <a id="user_id" href="#"
+					th:text="${uId}"> <!--ユーザID-->
+				</a>
+				</span> <a class="logout" href="#" onclick="LogoutLink()">ログアウト</a>
+			</div>
+		</form>
 	</div>
 
 	<div class="main_screen search_screen">
 		<div>
-			<a class="registration_button" href=""><img src="/img/add.png">
-				新規顧客登録</a>
+			<a class="registration_button" th:href="@{customer}"><img
+				src="/img/add.png"> 新規顧客登録</a>
 		</div>
 		<div id="search_table">
 			<form method="post" th:action="@{/operation/searching}">
+				<input type="hidden" name="uId" th:value="${uId}">
 				<!-- add -->
 				<div th:if="${param.error}" class="alert alert-danger">
 					該当する顧客データがありません。</div>
 
 				<table>
 					<tr>
-						<th>苗字</th>
+						<th>名字</th>
 						<th colspan="2"><input type="text" name="lastName"
 							class="box_size"> <!--氏名--></th>
 					</tr>
@@ -57,5 +59,14 @@
 			</form>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+		function LogoutLink() {
+			var f = document.forms["logoutLink"];
+			f.method = "POST";
+			f.submit();
+			return true;
+		}
+	</script>
 </body>
 </html>

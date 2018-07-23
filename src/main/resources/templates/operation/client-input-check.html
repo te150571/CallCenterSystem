@@ -13,8 +13,10 @@
 		<h2>コールセンター顧客管理システム</h2>
 		<form name="logoutLink" method="post" th:action="@{/logout}">
 			<div class="id_position">
-				<span id="loggedas">ログイン中： <a id="user_id" href="">00000000<!--ユーザID--></a></sapn>
-				<form role="form" method="post" th:action="@{/logout}"><button class="logout" type="submit">ログアウト</button></form>
+				<span id="loggedas">ログイン中： <a id="user_id" href="#"
+					th:text="${uId}"> <!--ユーザID-->
+				</a>
+				</span> <a class="logout" href="#" onclick="LogoutLink()">ログアウト</a>
 			</div>
 		</form>
 	</div>
@@ -90,5 +92,13 @@
     </div>
     <script type="text/javascript" src="/js/inquiry-list.js"></script>
     <script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript">
+		function LogoutLink() {
+			var f = document.forms["logoutLink"];
+			f.method = "POST";
+			f.submit();
+			return true;
+		}
+	</script>
 </body>
 </html>

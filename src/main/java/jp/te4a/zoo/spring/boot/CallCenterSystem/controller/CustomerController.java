@@ -33,6 +33,15 @@ public class CustomerController {
 	String customerCheck(@ModelAttribute("customerForm") CustomerForm customerForm, Model model) {
 		model.addAttribute("customerForm", customerForm);
 		
+		System.out.println("DEBUG 1 : " + customerForm.getLastname());
+		System.out.println("DEBUG 1 : " + customerForm.getFirstname());
+		System.out.println("DEBUG 1 : " + customerForm.getLastname_kana());
+		System.out.println("DEBUG 1 : " + customerForm.getFirstname_kana());
+		System.out.println("DEBUG 1 : " + customerForm.getBirth());
+		System.out.println("DEBUG 1 : " + customerForm.getTel());
+		System.out.println("DEBUG 1 : " + customerForm.getAddresscode());
+		System.out.println("DEBUG 1 : " + customerForm.getAddress());
+		
 		return "operation/client-input-check";
 	}
 	

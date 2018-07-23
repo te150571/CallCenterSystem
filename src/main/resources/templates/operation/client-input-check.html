@@ -24,28 +24,28 @@
 			<h3>新規顧客登録確認</h3>
 			<div class="position">
 				<table>
-					<tr id="name_tr">
-						<td id="table_left">
+					<tr class="name_tr">
+						<td class="table_left">
 							<b>氏名</b>
 						</td>
-						<td id="table_righ">
-							　姓 <input type="text" id="names" readonly>
-							　名 <input type="text" id="names" readonly>
+						<td class="table_right">
+							　姓 <input type="text" class="names" readonly>
+							　名 <input type="text" class="names" readonly>
 						</td>
 					</tr>
 
-					<tr id="name_tr">
-						<td id="table_left">
+					<tr class="name_tr">
+						<td class="table_left">
 							<b>フリガナ</b>
 						</td>
-						<td id="table_righ">
-							　セイ <input type="text" id="names" readonly>
-							　メイ <input type="text" id="names" readonly>
+						<td class="table_right">
+							　セイ <input type="text" class="names" readonly>
+							　メイ <input type="text" class="names" readonly>
 						</td>
 					</tr>
 
 					<tr id="birthday_tr">
-						<td id="table_left">
+						<td class="table_left">
 							<b>生年月日</b>
 						</td>
 						<td id="table_right">
@@ -56,7 +56,7 @@
                     </tr>
                     
                     <tr id="tel_tr">
-						<td id="table_left">
+						<td class="table_left">
 							<b>電話番号</b>
 						</td>
 						<td id="table_right">
@@ -65,7 +65,7 @@
                     </tr>
                     
                     <tr id="addresscode_tr">
-						<td id="table_left" rowspan="2">
+						<td class="table_left" rowspan="2">
 							<b>住所</b>
 						</td>
 						<td id="table_right">
@@ -78,10 +78,10 @@
                 </table>
 
 				<div>
-					<table id="table_check">
-							<tr id="table_check">
-								<td id="table_check"><input class="check_btn btn" type="submit" value="戻る"></td>
-								<td id="table_check"><input class="check_btn btn" type="submit" value="確定"></td>
+					<table class="table_checkbtn">
+							<tr class="table_checkbtn">
+								<td class="table_checkbtn"><input class="check_btn btn" type="submit" value="戻る"></td>
+								<td class="table_checkbtn"><input class="check_btn btn" type="submit" value="確定"></td>
 							</tr>
 					</table>
 				</div>
@@ -89,6 +89,6 @@
 		</form>
     </div>
     <script type="text/javascript" src="/js/inquiry-list.js"></script>
-    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
 </body>
 </html>

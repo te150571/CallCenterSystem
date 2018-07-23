@@ -54,7 +54,7 @@ table,tr,td{
     border-color: rgb(185, 185, 185);
 }
 
-#name_tr,#birthday_tr{
+.name_tr,#birthday_tr{
     height: 40px;
 }
 
@@ -66,17 +66,17 @@ table,tr,td{
     height: 100px;
 }
 
-#table_left{
+.table_left{
     background-color: rgb(121, 121, 121);
     color: white;
     width: 100px;
 }
 
-#table_check{
+.table_checkbtn{
     border-color: white;
 }
 
-#table_right{
+.table_right{
     width: 450px;
 }
 
@@ -90,7 +90,7 @@ textarea{
     border-color: rgba(255,255,255,0);
 }
 
-#names{
+.names{
     border-color:black;
     height: 30px;
     width: 170px;

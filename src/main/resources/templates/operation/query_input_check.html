@@ -18,10 +18,11 @@
 	</div>
 	<div class="main_screen">
 
-		<form class="inquiry_form rule" method="post" th:action="@{/〇〇〇}" th:object="${〇〇〇}"><!--DBに送信-->
+		<form class="inquiry_form rule" method="post" th:action="@{/calldata/check}" > <!-- th:object="${〇〇〇}"><!--DBに送信-->
 			
 			<h3>問い合わせ確認</h3>
 			<div class="position">
+				<input type="hidden" name="cId" th:value="${cId}" />
 				<table>
 					<tr>
 						<td id="table_left" valign="top">

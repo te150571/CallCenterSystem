@@ -1,7 +1,15 @@
 package jp.te4a.zoo.spring.boot.CallCenterSystem.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.CustomerCallBean;
+import jp.te4a.zoo.spring.boot.CallCenterSystem.service.CustomerCallService;
 
 /*
  * 問い合わせ情報に関するコントローラ
@@ -11,5 +19,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("calldata")
 public class CallDataController {
-
+	@Autowired
+	CustomerCallService customerCallService;
+	
+	@RequestMapping("create")
+	String inquiry_create(@RequestParam("cId") String cId, Model model) {
+		
+		//顧客IDをmodelに追加
+		model.addAttribute("cId", cId);
+		return "/operation/query_input";
+	}
+	
+	@RequestMapping("check")
+	String inquiry_create_check(/*@RequestParam("cId") String cId, Model model*/) {
+		
+		
+		return "/operation/query_input_check";
+	}
 }

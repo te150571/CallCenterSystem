@@ -18,7 +18,7 @@
 	</div>
 	<div class="main_screen">
 
-		<form class="inquiry_form rule" method="post" th:action="@{/〇〇〇}" th:object="@{/〇〇〇}">
+		<form class="inquiry_form rule" method="post" th:action="@{/ca}"> <!-- th:object="@{/〇〇〇}"> -->
 			
 			<h3>問い合わせ登録</h3>
 			<div th:if="${param.error}" class="alert alert-danger">
@@ -50,7 +50,7 @@
 						</td>
 					</tr>
 				</table>
-				<input class="parts btn" type="submit" value="確認" id="btn">
+				<input class="parts btn" type="submit" value="確認" id="btn" >
 			</div>
 		</form>
 	</div>

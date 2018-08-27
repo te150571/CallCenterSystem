@@ -13,15 +13,13 @@
 		<h2>コールセンター顧客管理システム</h2>
 		<form name="logoutLink" method="post" th:action="@{/logout}">
 			<div class="id_position">
-				<span id="loggedas">ログイン中： <a id="user_id" href="#"
-					th:text="${uId}"> <!--ユーザID-->
-				</a>
-				</span> <a class="logout" href="#" onclick="LogoutLink()">ログアウト</a>
+				<span id="loggedas">ログイン中： <a id="user_id" href="">00000000<!--ユーザID--></a></sapn>
+				<form role="form" method="post" th:action="@{/logout}"><button class="logout" type="submit">ログアウト</button></form>
 			</div>
 		</form>
 	</div>
 	<div class="main_screen">
-		<form class="client_form rule" name="form1" method="post" th:action="@{customer/confirm}" th:object="${customerForm}"><!--DBに送信-->
+		<form class="client_form rule" name="form1" method="post" th:action="@{/〇〇〇}" th:object="${〇〇〇}"><!--DBに送信-->
 		
 			<h3>新規顧客登録確認</h3>
 			<div class="position">
@@ -31,8 +29,8 @@
 							<b>氏名</b>
 						</td>
 						<td class="table_right">
-							　姓 <input type="text" class="names" readonly th:value="${customerForm.lastname}">
-							　名 <input type="text" class="names" readonly th:value="${customerForm.firstname}">
+							　　姓 <input type="text" class="names" readonly>
+							　　名 <input type="text" class="names" readonly>
 						</td>
 					</tr>
 
@@ -41,8 +39,8 @@
 							<b>フリガナ</b>
 						</td>
 						<td class="table_right">
-							　セイ <input type="text" class="names" readonly th:value="${customerForm.lastname_kana}">
-							　メイ <input type="text" class="names" readonly th:value="${customerForm.firstname_kana}">
+							　セイ <input type="text" class="names" readonly>
+							　メイ <input type="text" class="names" readonly>
 						</td>
 					</tr>
 
@@ -51,10 +49,9 @@
 							<b>生年月日</b>
 						</td>
 						<td id="table_right">
-							　<select name="year" id="id_year" class="time_date"><option th:value="${year}" selected></option></select> 年
-                            <select name="month" id="id_month" class="time_date"><option th:value="${month}" selected></option></select> 月
-                            <select name="day" id="id_day" class="time_date"><option th:value="${day}" selected></option></select> 日
-                            <input type="hidden" name="birth" th:value="${customerForm.birth}">
+							　<select name="year"></select> 年
+                            <select name="month"></select> 月
+                            <select name="day"></select> 日
 						</td>
                     </tr>
                     
@@ -63,7 +60,7 @@
 							<b>電話番号</b>
 						</td>
 						<td id="table_right">
-							<input type="text" id="tel" name="tel" readonly th:value="${customerForm.tel}">
+							<input type="text" id="tel" name="tel" readonly>
 						</td>
                     </tr>
                     
@@ -72,17 +69,17 @@
 							<b>住所</b>
 						</td>
 						<td id="table_right">
-							〒<input type="text" id="addresscode" name="addresscode" maxlength="7" readonly th:value="${customerForm.addresscode}">
+                            〒<input type="text" id="addresscode" name="addresscode" maxlength="7" readonly>
 						</td>
                     </tr>
                     <tr id="address_tr">
-                        <td id="table_right"><textarea id="address" readonly th:value="${customerForm.address}"></textarea></td>
+                        <td id="table_right"><textarea id="address" readonly></textarea></td>
                     </tr>
                 </table>
 
 				<div>
-					<table class="table_checkbtn">
-							<tr class="table_checkbtn">
+					<table>
+							<tr>
 								<td class="table_checkbtn"><input class="check_btn btn" type="submit" value="戻る"></td>
 								<td class="table_checkbtn"><input class="check_btn btn" type="submit" value="確定"></td>
 							</tr>
@@ -91,15 +88,5 @@
 			</div>
 		</form>
     </div>
-    <script type="text/javascript" src="/js/inquiry-list.js"></script>
-    <script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
-    <script type="text/javascript">
-		function LogoutLink() {
-			var f = document.forms["logoutLink"];
-			f.method = "POST";
-			f.submit();
-			return true;
-		}
-	</script>
 </body>
 </html>

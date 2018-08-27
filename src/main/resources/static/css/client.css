@@ -95,9 +95,15 @@ textarea{
 }
 
 .names{
-    border-color:rgb(185,185,185);
+    border-left-color:rgb(255, 255, 255);
+    border-right-color: rgb(0, 0, 0);
+    border-bottom-color: rgba(0,0,0,255);
+    border-top-color: rgba(255, 255, 255, 200);
+    border-top:0.01px;
+    border-bottom:0.01px;
     height: 30px;
     width: 170px;
+    margin: 0px;
 }
 
 #tel{

@@ -36,13 +36,6 @@ public class CustomerController {
 		model.addAttribute("month", month);
 		model.addAttribute("day", day);
 		
-		return "operation/client-input-check";
-	}
-	
-	@RequestMapping("confirm")
-	String customerConfirm(@ModelAttribute("customerForm") CustomerForm customerForm, Model model) {
-		model.addAttribute("customerForm", customerForm);
-		
 		System.out.println("DEBUG 1 : " + customerForm.getLastname());
 		System.out.println("DEBUG 1 : " + customerForm.getFirstname());
 		System.out.println("DEBUG 1 : " + customerForm.getLastname_kana());
@@ -51,6 +44,25 @@ public class CustomerController {
 		System.out.println("DEBUG 1 : " + customerForm.getTel());
 		System.out.println("DEBUG 1 : " + customerForm.getAddresscode());
 		System.out.println("DEBUG 1 : " + customerForm.getAddress());
+		System.out.println("DEBUG 1 : " + year);
+		System.out.println("DEBUG 1 : " + month);
+		System.out.println("DEBUG 1 : " + day);
+		
+		return "operation/client-input-check";
+	}
+	
+	@RequestMapping("confirm")
+	String customerConfirm(@ModelAttribute("customerForm") CustomerForm customerForm, Model model) {
+		model.addAttribute("customerForm", customerForm);
+		
+		System.out.println("DEBUG 2 : " + customerForm.getLastname());
+		System.out.println("DEBUG 2 : " + customerForm.getFirstname());
+		System.out.println("DEBUG 2 : " + customerForm.getLastname_kana());
+		System.out.println("DEBUG 2 : " + customerForm.getFirstname_kana());
+		System.out.println("DEBUG 2 : " + customerForm.getBirth());
+		System.out.println("DEBUG 2 : " + customerForm.getTel());
+		System.out.println("DEBUG 2 : " + customerForm.getAddresscode());
+		System.out.println("DEBUG 2 : " + customerForm.getAddress());
 		
 		customerService.create(customerForm);
 		

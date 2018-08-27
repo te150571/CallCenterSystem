@@ -30,7 +30,17 @@ public class CustomerController {
 	}
 
 	@RequestMapping("check")
-	String customerCheck(@ModelAttribute("customerForm") CustomerForm customerForm, Model model) {
+	String customerCheck(@ModelAttribute("customerForm") CustomerForm customerForm, @RequestParam(name= "year") int year, @RequestParam(name = "month") int month, @RequestParam(name = "day") int day, Model model) {
+		model.addAttribute("customerForm", customerForm);
+		model.addAttribute("year", year);
+		model.addAttribute("month", month);
+		model.addAttribute("day", day);
+		
+		return "operation/client-input-check";
+	}
+	
+	@RequestMapping("confirm")
+	String customerConfirm(@ModelAttribute("customerForm") CustomerForm customerForm, Model model) {
 		model.addAttribute("customerForm", customerForm);
 		
 		System.out.println("DEBUG 1 : " + customerForm.getLastname());
@@ -41,13 +51,6 @@ public class CustomerController {
 		System.out.println("DEBUG 1 : " + customerForm.getTel());
 		System.out.println("DEBUG 1 : " + customerForm.getAddresscode());
 		System.out.println("DEBUG 1 : " + customerForm.getAddress());
-		
-		return "operation/client-input-check";
-	}
-	
-	@RequestMapping("confirm")
-	String customerConfirm(@ModelAttribute("customerForm") CustomerForm customerForm, Model model) {
-		model.addAttribute("customerForm", customerForm);
 		
 		customerService.create(customerForm);
 		

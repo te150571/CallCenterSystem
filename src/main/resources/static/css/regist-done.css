@@ -37,7 +37,7 @@ h2{
 
 .main_screen{
     position: relative;
-    top: 275px;
+    top: 0px;
     text-align: center;
     margin: 0 auto;
 }
@@ -70,7 +70,7 @@ h2{
 }
 
 .place{
-    margin: 200px auto;
+    margin: 0px auto;
 }
 
 .rap{
@@ -89,15 +89,10 @@ h2{
 
 .sarchLink{
     font-size: 30px;
-	font-weight: bold;
-    text-align: center;
 }
 
 .subLink{
     font-size: 30px;
-	font-weight: bold;
-    text-align: center;
-    margin: 20px;
 }
 
 .btn{   /* ボタンのデザイン設定 */

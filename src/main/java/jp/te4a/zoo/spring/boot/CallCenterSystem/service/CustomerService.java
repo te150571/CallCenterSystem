@@ -48,4 +48,12 @@ public class CustomerService {
 	public String findNameByUid(@Param("uId") String uId) {
 		return customerRepository.findNameByUid(uId);
 	}
+	
+	/*
+	 * 顧客IDの最大値を取得する
+	 * 戻り値		: 顧客IDの最大値
+	 */
+	public String getMaxId() {
+		return customerRepository.getMaxId();
+	}
 }

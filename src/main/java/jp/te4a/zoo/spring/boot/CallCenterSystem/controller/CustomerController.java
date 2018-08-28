@@ -55,6 +55,13 @@ public class CustomerController {
 	String customerConfirm(@ModelAttribute("customerForm") CustomerForm customerForm, Model model) {
 		model.addAttribute("customerForm", customerForm);
 		
+		String maxUId = customerService.getMaxId();
+		int maxUIdNum = Integer.parseInt(maxUId);
+		maxUIdNum++;
+		String nextUId = String.format("%08d", maxUIdNum); 
+		customerForm.setId(nextUId);
+		
+		System.out.println("DEBUG 2 : " + customerForm.getId());
 		System.out.println("DEBUG 2 : " + customerForm.getLastname());
 		System.out.println("DEBUG 2 : " + customerForm.getFirstname());
 		System.out.println("DEBUG 2 : " + customerForm.getLastname_kana());

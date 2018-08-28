@@ -89,10 +89,12 @@ h2{
 
 .sarchLink{
     font-size: 30px;
+    margin-left: -20px;
 }
 
 .subLink{
     font-size: 30px;
+    margin-left: -20px;
 }
 
 .btn{   /* ボタンのデザイン設定 */

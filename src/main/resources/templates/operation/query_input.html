@@ -18,13 +18,14 @@
 	</div>
 	<div class="main_screen">
 
-		<form class="inquiry_form rule" method="post" th:action="@{/ca}"> <!-- th:object="@{/〇〇〇}"> -->
+		<form class="inquiry_form rule" method="post" th:action="@{/calldata/check}"> <!-- th:object="@{/〇〇〇}"> -->
 			
 			<h3>問い合わせ登録</h3>
 			<div th:if="${param.error}" class="alert alert-danger">
 				入力内容に不備があります。
 			</div>
 			<div class="position">
+				<input type="hidden" name="cId" th:value="${cId}">
 				<table>
 					<tr>
 						<td id="table_left" valign="top">
@@ -46,7 +47,7 @@
 							<b>内容</b>
 						</td>
 						<td id="texts">
-							<textarea name="inquiry_input" required="required"></textarea>
+							<textarea name="inquiry_input" required="required" th:value="${cantents}"></textarea>
 						</td>
 					</tr>
 				</table>

@@ -33,16 +33,22 @@
 			<div class="position">
 				<table>
 					<tr class="name_tr">
-						<td class="table_left"><b>氏名</b></td>
-						<td class="table_right">姓 <input type="text" name="lastname" class="names" th:value="${customerForm.lastname}"
-							readonly> 名 <input type="text" name="firstname" class="names" th:value="${customerForm.firstname}" readonly>
+						<td class="table_left">
+							<b>氏名</b>
+						</td>
+						<td class="table_right">
+							<span class="textname1">姓</span><input type="text" class="names" readonly>
+							<span class="textname1">名</span><input type="text" class="names" readonly>
 						</td>
 					</tr>
 
 					<tr class="name_tr">
-						<td class="table_left"><b>フリガナ</b></td>
-						<td class="table_right">セイ <input type="text" name="lastname_kana" class="names" th:value="${customerForm.lastname_kana}"
-							readonly> メイ <input type="text" name="firstname_kana" class="names" th:value="${customerForm.firstname_kana}" readonly>
+						<td class="table_left">
+							<b>フリガナ</b>
+						</td>
+						<td class="table_righ">
+							<span class="textname2">セイ</span><input type="text" class="names" readonly>
+							<span class="textname2">メイ</span><input type="text" class="names" readonly>
 						</td>
 					</tr>
 

@@ -33,4 +33,11 @@ public interface CustomerRepository extends JpaRepository<CustomerBean, String> 
 	 */
 	@Query("select concat(customer.lastname, customer.firstname) from CustomerBean customer where customer.id = :uId")
 	public String findNameByUid(@Param("uId") String uId);
+	
+	/*
+	 * 顧客IDの最大値を取得する
+	 * 戻り値		: 顧客IDの最大値
+	 */
+	@Query("select max(id) from CustomerBean")
+	public String getMaxId();
 }

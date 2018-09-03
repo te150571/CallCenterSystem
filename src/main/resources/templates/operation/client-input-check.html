@@ -39,6 +39,11 @@
 						<td class="table_right">
 							<span class="textname1">姓</span><input type="text" class="names" readonly>
 							<span class="textname1">名</span><input type="text" class="names" readonly>
+						<td class="table_left"><b>氏名</b></td>
+						<td class="table_right">姓 <input type="text" name="lastname"
+							class="names" th:value="${customerForm.lastname}" readonly>
+							名 <input type="text" name="firstname" class="names"
+							th:value="${customerForm.firstname}" readonly>
 						</td>
 					</tr>
 
@@ -49,40 +54,53 @@
 						<td class="table_righ">
 							<span class="textname2">セイ</span><input type="text" class="names" readonly>
 							<span class="textname2">メイ</span><input type="text" class="names" readonly>
+						<td class="table_left"><b>フリガナ</b></td>
+						<td class="table_right">セイ <input type="text"
+							name="lastname_kana" class="names"
+							th:value="${customerForm.lastname_kana}" readonly> メイ <input
+							type="text" name="firstname_kana" class="names"
+							th:value="${customerForm.firstname_kana}" readonly>
 						</td>
 					</tr>
 
 					<tr id="birthday_tr">
 						<td class="table_left"><b>生年月日</b></td>
-						<td id="table_right"><select name="year"><option th:value="${year}" th:text="${year}" selected></option></select> 年 <select
-							name="month"><option th:value="${month}" th:text="${month}" selected></option></select> 月 <select name="day"><option th:value="${day}" th:text="${day}" selected></option></select> 日</td>
+						<td id="table_right"><select name="year"><option
+									th:value="${year}" th:text="${year}" selected></option></select> 年 <select
+							name="month"><option th:value="${month}"
+									th:text="${month}" selected></option></select> 月 <select name="day"><option
+									th:value="${day}" th:text="${day}" selected></option></select> 日</td>
 					</tr>
-					
+
 
 					<tr id="tel_tr">
 						<td class="table_left"><b>電話番号</b></td>
-						<td id="table_right"><input type="text" id="tel" name="tel" th:value="${customerForm.tel}"
-							readonly></td>
+						<td id="table_right"><input type="text" id="tel" name="tel"
+							th:value="${customerForm.tel}" readonly></td>
 					</tr>
 
 					<tr id="addresscode_tr">
 						<td class="table_left" rowspan="2"><b>住所</b></td>
 						<td id="table_right">〒<input type="text" id="addresscode"
-							name="addresscode" maxlength="7" th:value="${customerForm.addresscode}" readonly>
+							name="addresscode" maxlength="7"
+							th:value="${customerForm.addresscode}" readonly>
 						</td>
 					</tr>
 					<tr id="address_tr">
-						<td id="table_right"><textarea id="address" name="address" th:field="${customerForm.address}" readonly></textarea></td>
+						<td id="table_right"><textarea id="address" name="address"
+								th:field="${customerForm.address}" readonly></textarea></td>
 					</tr>
 				</table>
-				
+
 				<input type="hidden" name="birth" th:value="${customerForm.birth}">
+				
+				<input id="switch" type="hidden" name="switch" value="confirm">
 
 				<div>
 					<table>
 						<tr>
 							<td class="table_checkbtn"><input class="check_btn btn"
-								type="submit" value="戻る"></td>
+								type="submit" onClick="redo()" value="戻る"></td>
 							<td class="table_checkbtn"><input class="check_btn btn"
 								type="submit" value="確定"></td>
 						</tr>
@@ -91,8 +109,12 @@
 			</div>
 		</form>
 	</div>
-</body>
-<script type="text/javascript">
+
+	<script type="text/javascript">
+		function redo() {
+			var input = document.getElementById('switch');
+			input.value = "redo";
+		}
 		function LogoutLink() {
 			var f = document.forms["logoutLink"];
 			f.method = "POST";
@@ -100,4 +122,5 @@
 			return true;
 		}
 	</script>
+</body>
 </html>

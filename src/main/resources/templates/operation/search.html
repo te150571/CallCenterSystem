@@ -21,8 +21,10 @@
 
 	<div class="main_screen search_screen">
 		<div>
-			<a class="registration_button" th:href="@{customer}"><img
-				src="/img/add.png"> 新規顧客登録</a>
+			<form name="addCust" method="post" th:action="@{/customer}">
+				<input type="hidden" name="uId" th:value="${uId}">
+				<a class="registration_button" href="#" onclick="AddCust()"><img src="/img/add.png"> 新規顧客登録</a>
+			</form>
 		</div>
 		<div id="search_table">
 			<form method="post" th:action="@{/operation/searching}">
@@ -63,7 +65,12 @@
 	<script type="text/javascript">
 		function LogoutLink() {
 			var f = document.forms["logoutLink"];
-			f.method = "POST";
+			f.submit();
+			return true;
+		}
+		
+		function AddCust() {
+			var f = document.forms["addCust"];
 			f.submit();
 			return true;
 		}

@@ -67,8 +67,11 @@ public class MgSysMainController {
 			@RequestParam(name = "firstName", required = false) String firstName,
 			@RequestParam(name = "tel", required = false) String tel,
 			@RequestParam(name = "address", required = false) String address,
-			@RequestParam(name = "uId" , required = true) String uId,
+			@RequestParam(name = "uId" , required = false) String uId,
+			@RequestParam(name = "next") String next,
 			Model model) throws Exception {
+		
+		if(next.equals("back")) return "operation/search";
 		
 		model.addAttribute("uId", uId);
 

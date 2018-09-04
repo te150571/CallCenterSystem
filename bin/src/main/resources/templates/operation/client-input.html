@@ -1,18 +1,22 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8" />
-	<title>新規顧客登録</title>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.mincss" th:href="@{/webjars/bootstrap/3.3.7/bootstrap-theme.min.css}" />
-    <link rel="stylesheet" href="/css/style.css" />
-	<link rel="stylesheet" href="/css/client.css"/>
-	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<meta charset="utf-8" />
+<title>新規顧客登録</title>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.mincss"
+	th:href="@{/webjars/bootstrap/3.3.7/bootstrap-theme.min.css}" />
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/client.css" />
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
 </head>
 <body>
-    <div class="gradation">
-            <h2>コールセンター顧客管理システム</h2>
-            <form name="logoutLink" method="post" th:action="@{/logout}">
+	<div class="gradation">
+		<h2>コールセンター顧客管理システム</h2>
+		<form name="logoutLink" method="post" th:action="@{/logout}">
 			<div class="id_position">
 				<span id="loggedas">ログイン中： <a id="user_id" href="#"
 					th:text="${uId}"> <!--ユーザID-->
@@ -23,88 +27,78 @@
 	</div>
 	<div class="main_screen">
 
-		<form class="client_form rule" name="customer" method="post" th:action="@{customer/check}" th:object="${customerForm}">
-			
+		<form class="client_form rule" name="addcustomer" method="post"
+			th:action="@{/customer/check}" th:object="${customerForm}">
+
 			<h3>新規顧客登録</h3>
 			<div class="position">
 				<table>
-					<tr id="name_tr">
-						<td id="table_left">
+					<tr class="name_tr">
+						<td class="table_left">
 							<b>氏名</b>
 						</td>
-						<td id="table_righ">
-							　姓 <textarea id="lastname" required></textarea>
-							　名 <textarea id="firstname" required></textarea>
+						<td class="table_right">
+							<span class="textname1">姓</span><input type="text" class="names" required>
+							<span class="textname1">名</span><input type="text" class="names" required>
 						</td>
 					</tr>
 
-					<tr id="name_tr">
-						<td id="table_left">
+					<tr class="name_tr">
+						<td class="table_left">
 							<b>フリガナ</b>
 						</td>
-						<td id="table_righ">
-							　姓 <textarea id="lastname_kana" required></textarea>
-							　名 <textarea id="firstname_kana" required></textarea>
+						<td class="table_righ">
+							<span class="textname2">セイ</span><input type="text" class="names" required>
+							<span class="textname2">メイ</span><input type="text" class="names" required>
 						</td>
 					</tr>
 
 					<tr id="birthday_tr">
-						<td id="table_left">
-							<b>生年月日</b>
-						</td>
-						<td id="table_right">
-							　<select name="year" id="id_year" class="time_date"></select> 年
-                            <select name="month" id="id_month" class="time_date"></select> 月
-                            <select name="day" id="id_day" class="time_date"></select> 日
-						</td>
-                    </tr>
-                    
-                    <tr id="tel_tr">
-						<td id="table_left">
-							<b>電話番号</b>
-						</td>
-						<td id="table_right">
-							<textarea id="tel" name="tel" required></textarea>
-						</td>
-                    </tr>
-                    
-                    <tr id="addresscode_tr">
-						<td id="table_left" rowspan="2">
-							<b>住所</b>
-						</td>
-						<td id="table_right">
-							〒<textarea id="addresscode" name="addresscode" maxlength="7" required></textarea>
-						</td>
-                    </tr>
-                    <tr id="address_tr">
-                        <td id="table_right"><textarea id="address" required></textarea></td>
-                    </tr>
-                </table>
+						<td class="table_left"><b>生年月日</b></td>
+						<td class="table_right"><select name="year" id="id_year"></select>
+							年 <select name="month" id="id_month"></select> 月 <select
+							name="day" id="id_day"></select> 日</td>
+					</tr>
 
-                <div>
-					<input class="parts btn" type="submit" onClick="GenerateBirthday()" value="確認">
+					<tr id="tel_tr">
+						<td class="table_left"><b>電話番号</b></td>
+						<td class="table_right"><input type="text" id="tel" name="tel" required></td>
+					</tr>
+
+					<tr id="addresscode_tr">
+						<td class="table_left" rowspan="2"><b>住所</b></td>
+						<td class="table_right">〒<input type="text" id="addresscode" name="addresscode" maxlength="7" required>
+						</td>
+					</tr>
+					<tr id="address_tr">
+						<td class="table_right"><textarea id="address" name="address" required></textarea></td>
+					</tr>
+				</table>
+
+				<div>
+					<input class="btn" type="submit" onClick="BirthGen()" value="確認">
 				</div>
 			</div>
 		</form>
-    </div>
-    <script type="text/javascript" src="/js/client-input.js"></script>
-    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
-    
-    <script type="text/javascript">
+	</div>
+	<script type="text/javascript" src="/js/client-input.js"></script>
+	<script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript">
+		function BirthGen() {
+			var f = document.forms["addcustomer"];
+			var birth = document.createElement("input");
+			birth.type = "hidden";
+			birth.name = "birth";
+			birth.value = document.getElementById("id_year").value + "/"
+					+ document.getElementById("id_month").value + "/"
+					+ document.getElementById("id_day").value;
+			f.appendChild(birth);
+		}
 		function LogoutLink() {
 			var f = document.forms["logoutLink"];
 			f.method = "POST";
 			f.submit();
 			return true;
-		}
-		
-		function GenerateBirthday() {
-			var forms = document.forms["customer"];
-			var birthday = document.createElement('input');
-			birthday.type = 'hidden';
-			birthday.name = 'selectedCallId';
-			birthday.value = document.getElementById('id_year') + '/' + document.getElementById('id_month') + '/' + document.getElementById('id_day');
-			f.appendChild(selectedCallId);
 		}
 	</script>
 </body>

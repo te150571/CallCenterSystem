@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+body{
+    overflow: auto;
+    font-family: "Meiryo", sans-serif;
+    margin: 0px;
+}
+
+.gradation{
+    margin: 0px;
+    background:-webkit-linear-gradient(top, #00bfff, #FFF);
+    height: 150px;
+}
+
+.id_position{
+    margin:0px;
+    position: relative;
+    right:-450px;
+    margin: 0 auto;
+    top: -50px;
+    width: 300px;
+    font-weight:bold;
+}
+
+h2{
+    position: relative;
+    top:30px;
+    left:24px;
+    white-space: nowrap;
+    color:white;
+    font-weight: bold; /*フォントの太さ*/
+    text-shadow: 3px 3px 2px gray;  /*影*/
+    margin:0px;
+    font-size:38px;
+
+}
+
+.main_screen{
+    position: relative;
+    top: 0px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.btn{   /* ボタンのデザイン設定 */
+    background:-webkit-linear-gradient(bottom, #0084ff, #00bfff);
+    color: #FFF;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn:hover{
+    background:  #88eaff;/*ボタン色*/
+    border-bottom: solid 4px #9cb5c0;
+}
+
+.rule{
+    border-style:solid;
+    
+    border-color: rgb(216, 216, 216);
+    border-width: 2px;
+    padding-top:30px;
+    padding-bottom: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.place{
+    margin: 0px auto;
+}
+
+.rap{
+		white-space: nowrap;
+}
+
+.red p{
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.sarchLink{
+    font-size: 30px;
+    margin-left: -20px;
+}
+
+.subLink{
+    font-size: 30px;
+    margin-left: -20px;
+}
+
+.btn{   /* ボタンのデザイン設定 */
+    background:-webkit-linear-gradient(bottom, #0084ff, #00bfff);
+    color: #FFF;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 25px;
+}

@@ -2,8 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css"
-	href="/css/regist-done.css" />
+<link rel="stylesheet" type="text/css" href="/css/regist-done.css" />
 <title>顧客内容登録完了画面</title>
 </head>
 <body>
@@ -26,18 +25,31 @@
 			</div>
 		</div>
 
-		<div class="sarchLink">
-			<input class="btn" type="submit" value="検索画面へ">
-		</div>
-		<div class="subLink">
-			<input class="btn" type="submit" value="詳細画面へ">
-		</div>
+		<form name="next" method="post" th:action="@{/operation/searching}">
+			<input type="hidden" name="uId" th:value="${uId}"> <input
+				type="hidden" name="lastName" th:value="${customerForm.lastname}">
+			<input type="hidden" name="firstName"
+				th:value="${customerForm.firstname}"> <input type="hidden"
+				name="tel" th:value="${customerForm.tel}"> <input
+				type="hidden" name="address" th:value="${customerForm.address}">
+
+			<input type="hidden" id="next" name="next" value="search">
+			<div class="sarchLink">
+				<input class="btn" onClick="Back()" type="submit" value="検索画面へ">
+			</div>
+			<div class="subLink">
+				<input class="btn" type="submit" value="詳細画面へ">
+			</div>
+		</form>
 	</div>
 
 	<script type="text/javascript">
+		function Back() {
+			var input = document.getElementById('next');
+			input.value = "back";
+		}
 		function LogoutLink() {
 			var f = document.forms["logoutLink"];
-			f.method = "POST";
 			f.submit();
 			return true;
 		}

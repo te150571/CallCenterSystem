@@ -5,21 +5,17 @@
     height:450px;
 }
 
-.main_screen{
-    top: 230px;
-}
-
 h3{
     margin-top: 5px;
 }
 
-.parts{
+.btn{
     width: 300px;
     height: 35px;
     margin-top:20px;
 }
 
-.parts2{
+.check_btn{
     width: 195px;
     height: 35px;
     margin-top:10px;
@@ -58,7 +54,11 @@ table,tr,td{
     border-color: rgb(185, 185, 185);
 }
 
-#name_tr,#birthday_tr{
+.name_tr{
+    height: 30px;
+}
+
+#birthday_tr{
     height: 40px;
 }
 
@@ -70,17 +70,17 @@ table,tr,td{
     height: 100px;
 }
 
-#table_left{
+.table_left{
     background-color: rgb(121, 121, 121);
     color: white;
     width: 100px;
 }
 
-#table_check{
+.table_checkbtn{
     border-color: white;
 }
 
-#table_right{
+.table_right{
     width: 450px;
 }
 
@@ -94,23 +94,41 @@ textarea{
     border-color: rgba(255,255,255,0);
 }
 
-#names{
-    border-color:black;
+.names{
+	border-style: solid;
+	border-width: 0 2px;
+	border-color: rgb(181,181,181);
     height: 30px;
     width: 170px;
+    margin: 0px;
+}
+
+.textname1{
+    margin-left: 25px;
+}
+
+.textname2{
+    margin-left: 10px;
 }
 
 #tel{
+    border-color: rgba(255,255,255,0);
     height: 30px;
-    width: 100%;
+    width: 99.3%;
 }
 
 #addresscode{
+    border-color: rgba(255,255,255,0);
     height: 30px;
     width: 96.6%;
 }
 
 #address{
     height: 100px;
-    width: 100%;
+    width: 99.6%;
+}
+
+.id_position{
+    top: -35px;
+    font-size: 16.5px;
 }

@@ -23,14 +23,16 @@ public class CustomerController {
 	CustomerService customerService;
 
 	@RequestMapping
-	String customerAdd(Model model) {
+	String customerAdd(Model model, @RequestParam(name = "uId" , required = true) String uId) {
+		model.addAttribute("uId", uId);
 		model.addAttribute("customerForm", new CustomerForm());
 		
 		return "operation/client-input";
 	}
 
 	@RequestMapping("check")
-	String customerCheck(@ModelAttribute("customerForm") CustomerForm customerForm, @RequestParam(name= "year") int year, @RequestParam(name = "month") int month, @RequestParam(name = "day") int day, Model model) {
+	String customerCheck(@ModelAttribute("customerForm") CustomerForm customerForm, @RequestParam(name= "year") int year, @RequestParam(name = "month") int month, @RequestParam(name = "day") int day, @RequestParam(name = "uId" , required = true) String uId, Model model) {
+		model.addAttribute("uId", uId);
 		model.addAttribute("customerForm", customerForm);
 		model.addAttribute("year", year);
 		model.addAttribute("month", month);
@@ -40,15 +42,17 @@ public class CustomerController {
 	}
 	
 	@RequestMapping("confirm")
-	String customerConfirm(@ModelAttribute("customerForm") CustomerForm customerForm, @RequestParam(name= "year") int year, @RequestParam(name = "month") int month, @RequestParam(name = "day") int day, @RequestParam(name="switch") String switchFlag, Model model) {
+	String customerConfirm(@ModelAttribute("customerForm") CustomerForm customerForm, @RequestParam(name= "year") int year, @RequestParam(name = "month") int month, @RequestParam(name = "day") int day, @RequestParam(name="switch") String switchFlag, @RequestParam(name = "uId" , required = true) String uId, Model model) {
 
+		model.addAttribute("uId", uId);
+		
 		if(switchFlag.equals("redo")) {
 			model.addAttribute("customerForm", customerForm);
 			model.addAttribute("year", year);
 			model.addAttribute("month", month);
 			model.addAttribute("day", day);
 			
-			return "redirect:redo";
+			return "operation/client-input";
 		}
 		else {
 			String maxUId = customerService.getMaxId();
@@ -57,17 +61,6 @@ public class CustomerController {
 			String nextUId = String.format("%08d", maxUIdNum); 
 			customerForm.setId(nextUId);
 			
-			System.out.println("DEBUG 2 : " + switchFlag);
-			System.out.println("DEBUG 2 : " + customerForm.getId());
-			System.out.println("DEBUG 2 : " + customerForm.getLastname());
-			System.out.println("DEBUG 2 : " + customerForm.getFirstname());
-			System.out.println("DEBUG 2 : " + customerForm.getLastname_kana());
-			System.out.println("DEBUG 2 : " + customerForm.getFirstname_kana());
-			System.out.println("DEBUG 2 : " + customerForm.getBirth());
-			System.out.println("DEBUG 2 : " + customerForm.getTel());
-			System.out.println("DEBUG 2 : " + customerForm.getAddresscode());
-			System.out.println("DEBUG 2 : " + customerForm.getAddress());
-			
 			customerService.create(customerForm);
 			
 			return "operation/client-input-done";
@@ -75,19 +68,44 @@ public class CustomerController {
 	}
 	
 	@RequestMapping("redo")
-	String customerRedo(@ModelAttribute("customerForm") CustomerForm customerForm, Model model) {
+	String customerRedo(@ModelAttribute("customerForm") CustomerForm customerForm, @RequestParam(name = "uId" , required = true) String uId, Model model) {
+		model.addAttribute("uId", uId);
 		model.addAttribute("customerForm", customerForm);
 		
 		return "operation/client-input";
 	}
 	
 	@RequestMapping("edit")
-	String customerEdit(@RequestParam("cId") String cId, Model model) {
+	String customerEdit(@RequestParam("cId") String cId, @RequestParam(name = "uId" , required = true) String uId, Model model) {
+		model.addAttribute("uId", uId);
 		model.addAttribute("cId", cId);
 		
 		CustomerForm customerForm = customerService.findById(cId);
 		model.addAttribute("customerForm", customerForm);
 		
 		return "operation/client-input";
+	}
+	
+	@RequestMapping("exit")
+	String exit(@RequestParam(name = "next") String next,
+			@RequestParam(name = "uId" , required = true) String uId,
+			@RequestParam(name="lastName") String lastname,
+			@RequestParam(name="firstName") String firstname,
+			@RequestParam(name="tel") String tel,
+			@RequestParam(name="address") String address,
+			Model model) {
+		
+		model.addAttribute("uId", uId);
+		model.addAttribute("lastName", lastname);
+		model.addAttribute("firstName", firstname);
+		model.addAttribute("tel", tel);
+		model.addAttribute("address", address);
+		
+		if(next.equals("search")) {
+			return "redirect:/operation";
+		}
+		else {
+			return "redirect:/operation/searching";
+		}
 	}
 }

@@ -27,6 +27,8 @@
 	<div class="main_screen">
 		<form class="client_form rule" name="addcustomer" method="post"
 			th:action="@{/customer/confirm}" th:object="${customerForm}">
+			
+			<input type="hidden" name="uId" th:value="${uId}">
 			<!--DBに送信-->
 
 			<h3>新規顧客登録確認</h3>
@@ -37,13 +39,8 @@
 							<b>氏名</b>
 						</td>
 						<td class="table_right">
-							<span class="textname1">姓</span><input type="text" class="names" readonly>
-							<span class="textname1">名</span><input type="text" class="names" readonly>
-						<td class="table_left"><b>氏名</b></td>
-						<td class="table_right">姓 <input type="text" name="lastname"
-							class="names" th:value="${customerForm.lastname}" readonly>
-							名 <input type="text" name="firstname" class="names"
-							th:value="${customerForm.firstname}" readonly>
+							<span class="textname1">姓</span><input type="text" class="names" name="lastname" th:value="${customerForm.lastname}" readonly>
+							<span class="textname1">名</span><input type="text" class="names" name="firstname" th:value="${customerForm.firstname}" readonly>
 						</td>
 					</tr>
 
@@ -52,14 +49,8 @@
 							<b>フリガナ</b>
 						</td>
 						<td class="table_righ">
-							<span class="textname2">セイ</span><input type="text" class="names" readonly>
-							<span class="textname2">メイ</span><input type="text" class="names" readonly>
-						<td class="table_left"><b>フリガナ</b></td>
-						<td class="table_right">セイ <input type="text"
-							name="lastname_kana" class="names"
-							th:value="${customerForm.lastname_kana}" readonly> メイ <input
-							type="text" name="firstname_kana" class="names"
-							th:value="${customerForm.firstname_kana}" readonly>
+							<span class="textname2">セイ</span><input type="text" class="names" name="lastname_kana" th:value="${customerForm.lastname_kana}" readonly>
+							<span class="textname2">メイ</span><input type="text" class="names" name="firstname_kana" th:value="${customerForm.firstname_kana}" readonly>
 						</td>
 					</tr>
 
@@ -100,7 +91,7 @@
 					<table>
 						<tr>
 							<td class="table_checkbtn"><input class="check_btn btn"
-								type="submit" onClick="redo()" value="戻る"></td>
+								type="submit" onclick="redo()" value="戻る"></td>
 							<td class="table_checkbtn"><input class="check_btn btn"
 								type="submit" value="確定"></td>
 						</tr>
@@ -117,7 +108,6 @@
 		}
 		function LogoutLink() {
 			var f = document.forms["logoutLink"];
-			f.method = "POST";
 			f.submit();
 			return true;
 		}

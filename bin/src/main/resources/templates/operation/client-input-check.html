@@ -1,17 +1,21 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8" />
-	<title>新規顧客登録確認</title>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.mincss" th:href="@{/webjars/bootstrap/3.3.7/bootstrap-theme.min.css}" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/client.css"/>
+<meta charset="utf-8" />
+<title>新規顧客登録確認</title>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.mincss"
+	th:href="@{/webjars/bootstrap/3.3.7/bootstrap-theme.min.css}" />
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/client.css" />
 </head>
 <body>
-    <div class="gradation">
-            <h2>コールセンター顧客管理システム</h2>
-            <form name="logoutLink" method="post" th:action="@{/logout}">
+	<div class="gradation">
+		<h2>コールセンター顧客管理システム</h2>
+		<form name="logoutLink" method="post" th:action="@{/logout}">
 			<div class="id_position">
 				<span id="loggedas">ログイン中： <a id="user_id" href="#"
 					th:text="${uId}"> <!--ユーザID-->
@@ -21,77 +25,85 @@
 		</form>
 	</div>
 	<div class="main_screen">
-		<form class="inquiry_form rule" method="post" th:action="@{customer/confirm}" th:object="${customerForm}">
-			
-			<h3>新規顧客確認</h3>
+		<form class="client_form rule" name="addcustomer" method="post"
+			th:action="@{/customer/confirm}" th:object="${customerForm}">
+			<!--DBに送信-->
+
+			<h3>新規顧客登録確認</h3>
 			<div class="position">
 				<table>
-					<tr id="name_tr">
-						<td id="table_left">
-							<b>氏名</b>
-						</td>
-						<td id="table_righ">
-							　姓 <textarea id="names" th:value="${customerForm.lastname}" readonly></textarea>
-							　名 <textarea id="names" th:value="${customerForm.firstname}" readonly></textarea>
-						</td>
-					</tr>
-
-					<tr id="name_tr">
-						<td id="table_left">
-							<b>フリガナ</b>
-						</td>
-						<td id="table_righ">
-							　姓 <textarea id="names" th:value="${customerForm.lastname_kana}" readonly></textarea>
-							　名 <textarea id="names" th:value="${customerForm.firstname_kana}" readonly></textarea>
+					<tr class="name_tr">
+						<td class="table_left"><b>氏名</b></td>
+						<td class="table_right"><span class="textname1">姓</span><input
+							type="text" class="names" name="lastname"
+							th:value="${customerForm.lastname}" readonly> <span
+							class="textname1">名</span><input type="text" class="names"
+							name="firstname" th:value="${customerForm.firstname}" readonly>
 						</td>
 					</tr>
 
-					<tr>
-						<td id="table_left" valign="top">
-							<b>生年月日</b>
-						</td>
-						<td>
-							<select name="year" id="id_year" class="time_date"></select> 年
-                            <select name="month" id="id_month" class="time_date"></select> 月
-                            <select name="day" id="id_day" class="time_date"></select> 日
-						</td>
+					<tr class="name_tr">
+						<td class="table_left"><b>フリガナ</b></td>
+						<td class="table_righ"><span class="textname2">セイ</span><input
+							type="text" name="lastname_kana" class="names"
+							th:value="${customerForm.lastname_kana}" readonly> <span
+							class="textname2">メイ</span><input type="text"
+							name="firstname_kana" class="names"
+							th:value="${customerForm.lastname_kana}" readonly></td>
 					</tr>
-					
+
+					<tr id="birthday_tr">
+						<td class="table_left"><b>生年月日</b></td>
+						<td id="table_right"><select name="year"><option
+									th:value="${year}" th:text="${year}" selected></option></select> 年 <select
+							name="month"><option th:value="${month}"
+									th:text="${month}" selected></option></select> 月 <select name="day"><option
+									th:value="${day}" th:text="${day}" selected></option></select> 日</td>
+					</tr>
+
+
 					<tr id="tel_tr">
-						<td id="table_left">
-							<b>電話番号</b>
-						</td>
-						<td id="table_right">
-							<textarea id="tel" name="tel" th:value="${customerForm.tel}" readonly></textarea>
-						</td>
+						<td class="table_left"><b>電話番号</b></td>
+						<td id="table_right"><input type="text" id="tel" name="tel"
+							th:value="${customerForm.tel}" readonly></td>
 					</tr>
-					
+
 					<tr id="addresscode_tr">
-						<td id="table_left" rowspan="2">
-							<b>住所</b>
-						</td>
-						<td id="table_right">
-							〒<textarea id="addresscode" name="addresscode" maxlength="7" th:value="${customerForm.addresscode}" readonly></textarea>
+						<td class="table_left" rowspan="2"><b>住所</b></td>
+						<td id="table_right">〒<input type="text" id="addresscode"
+							name="addresscode" maxlength="7"
+							th:value="${customerForm.addresscode}" readonly>
 						</td>
 					</tr>
 					<tr id="address_tr">
-						<td id="table_right"><textarea id="address" th:value = "${customerForm.address}"  readonly></textarea></td>
+						<td id="table_right"><textarea id="address" name="address"
+								th:field="${customerForm.address}" readonly></textarea></td>
 					</tr>
 				</table>
 
+				<input type="hidden" name="birth" th:value="${customerForm.birth}">
+
+				<input id="switch" type="hidden" name="switch" value="confirm">
+
 				<div>
-					<table id="table_check">
-							<tr id="table_check">
-								<td id="table_check"><input class="parts2 btn" type="submit" value="戻る"></td>
-								<td id="table_check"><input class="parts2 btn" type="submit" value="確定"></td>
-							</tr>
+					<table>
+						<tr>
+							<td class="table_checkbtn"><input class="check_btn btn"
+								type="submit" onClick="redo()" value="戻る"></td>
+							<td class="table_checkbtn"><input class="check_btn btn"
+								type="submit" value="確定"></td>
+						</tr>
 					</table>
 				</div>
 			</div>
 		</form>
-    </div>
-    
-    <script type="text/javascript">
+	</div>
+
+	<script type="text/javascript">
+		function redo() {
+			var input = document.getElementById('switch');
+			input.value = "redo";
+		}
 		function LogoutLink() {
 			var f = document.forms["logoutLink"];
 			f.method = "POST";

@@ -9,6 +9,14 @@
 <body>
 	<div class="gradation">
 		<h2>コールセンター顧客管理システム</h2>
+				<form name="logoutLink" method="post" th:action="@{/logout}">
+			<div class="id_position">
+				<span id="loggedas">ログイン中： <a id="user_id" href="#"
+					th:text="${uId}"> <!--ユーザID-->
+				</a>
+				</span> <a class="logout" href="#" onclick="LogoutLink()">ログアウト</a>
+			</div>
+		</form>
 		<div class="place">
 			<div class="red">
 				<p class="rap">パスワードを変更しました。</p>
@@ -18,5 +26,13 @@
 			<a href="">トップページへ戻る</a>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function LogoutLink() {
+			var f = document.forms["logoutLink"];
+			f.method = "POST";
+			f.submit();
+			return true;
+		}
+</script>
 </body>
 </html>

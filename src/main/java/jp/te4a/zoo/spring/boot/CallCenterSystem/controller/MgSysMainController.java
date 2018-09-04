@@ -111,8 +111,10 @@ public class MgSysMainController {
 		
 		model.addAttribute("uId", uId);
 		
+		String month2 = String.format("%02d", Integer.parseInt(month));
+		String day2 = String.format("%02d", Integer.parseInt(day));
 		// 日付を成型
-		String inDay = year + "/" + month + "/" + day;
+		String inDay = year + "/" + month2 + "/" + day2;
 
 		String[][] refinedCallData;
 

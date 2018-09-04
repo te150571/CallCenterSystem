@@ -17,8 +17,7 @@
 			</div>
 	</div>
 	<div class="main_screen">
-
-		<form class="inquiry_form rule" method="post" th:action="@{/calldata/check}"> <!-- th:object="@{/〇〇〇}"> -->
+		<form class="inquiry_form rule" th:action="@{/calldata/check}" method="post"> <!-- th:object="@{/〇〇〇}"> -->
 			
 			<h3>問い合わせ登録</h3>
 			<div th:if="${param.error}" class="alert alert-danger">
@@ -26,13 +25,14 @@
 			</div>
 			<div class="position">
 				<input type="hidden" name="cId" th:value="${cId}">
+				<input type="hidden" th:value="${category_check}">　
 				<table>
 					<tr>
 						<td id="table_left" valign="top">
 							<b>カテゴリ</b>
 						</td>
 						<td>
-							<select>
+							<select name="category">
 								<option>依頼</option>
 								<option>問い合わせ</option>
 								<option>サポート</option>
@@ -41,13 +41,12 @@
 							</select>
 						</td>
 					</tr>
-
 					<tr>
 						<td id="table_left" valign="top">
 							<b>内容</b>
 						</td>
 						<td id="texts">
-							<textarea name="inquiry_input" required="required" th:value="${cantents}"></textarea>
+							<textarea name="inquiry_input" th:text="${inquiry_input}"></textarea>
 						</td>
 					</tr>
 				</table>
@@ -56,4 +55,8 @@
 		</form>
 	</div>
 </body>
+
+<script>
+	
+</script>
 </html>

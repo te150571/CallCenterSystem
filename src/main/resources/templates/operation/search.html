@@ -28,6 +28,7 @@
 		</div>
 		<div id="search_table">
 			<form method="post" th:action="@{/operation/searching}">
+			<input type="hidden" id="next" name="next" value="search">
 				<input type="hidden" name="uId" th:value="${uId}">
 				<!-- add -->
 				<div th:if="${param.error}" class="alert alert-danger">

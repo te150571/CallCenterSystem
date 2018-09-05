@@ -12,14 +12,15 @@
 				<th>Class ID</th>
 				<th>Contents</th>
 			</tr>
-			<tr th:each="callData : ${callData}">
-				<td th:text="${callData[0]}"></td>
-				<td th:text="${callData[1]}"></td>
-				<td th:text="${callData[2]}" style="font-weight: bold;"></td>
-				<td th:text="${callData[3]}"></td>
+			<tr th:each="callData : ${customercallForm}">
+				<td th:text="${calldata}"></td> <!-- 
+				<td th:text="${customercallForm[1]}"></td>
+				<td th:text="${customercallForm[2]}" style="font-weight: bold;"></td>
+				<td th:text="${customercallForm[3]}"></td>
+				<td th:text="${customercallForm[4]}"></td> -->
 			</tr>
 		</table>
-		<p th:unless="${callData} != null">データがありません</p>
+		<p th:unless="${customercallForm} != null">データがありません</p>
 	</div>
 </body>
 </html>

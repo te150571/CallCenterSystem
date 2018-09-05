@@ -27,7 +27,7 @@
 	<div class="main_screen">
 		<form class="client_form rule" name="addcustomer" method="post"
 			th:action="@{/customer/confirm}" th:object="${customerForm}">
-			
+
 			<input type="hidden" name="uId" th:value="${uId}">
 			<!--DBに送信-->
 
@@ -35,25 +35,25 @@
 			<div class="position">
 				<table>
 					<tr class="name_tr">
-						<td class="table_left">
-							<b>氏名</b>
-						</td>
-						<td class="table_right">
-							<span class="textname1">姓</span><input type="text" class="names" name="lastname" th:value="${customerForm.lastname}" readonly>
-							<span class="textname1">名</span><input type="text" class="names" name="firstname" th:value="${customerForm.firstname}" readonly>
+						<td class="table_left"><b>氏名</b></td>
+						<td class="table_right"><span class="textname1">姓</span><input
+							type="text" class="names" name="lastname"
+							th:value="${customerForm.lastname}" readonly> <span
+							class="textname1">名</span><input type="text" class="names"
+							name="firstname" th:value="${customerForm.firstname}" readonly>
 						</td>
 					</tr>
 
 					<tr class="name_tr">
-						<td class="table_left">
-							<b>フリガナ</b>
-						</td>
-						<td class="table_righ">
-							<span class="textname2">セイ</span><input type="text" class="names" name="lastname_kana" th:value="${customerForm.lastname_kana}" readonly>
-							<span class="textname2">メイ</span><input type="text" class="names" name="firstname_kana" th:value="${customerForm.firstname_kana}" readonly>
-						</td>
+						<td class="table_left"><b>フリガナ</b></td>
+						<td class="table_righ"><span class="textname2">セイ</span><input
+							type="text" class="names" name="lastname_kana"
+							th:value="${customerForm.lastname_kana}" readonly> <span
+							class="textname2">メイ</span><input type="text" class="names"
+							name="firstname_kana" th:value="${customerForm.firstname_kana}"
+							readonly></td>
 					</tr>
-					
+
 
 					<tr id="birthday_tr">
 						<td class="table_left"><b>生年月日</b></td>
@@ -85,7 +85,7 @@
 				</table>
 
 				<input type="hidden" name="birth" th:value="${customerForm.birth}">
-				
+
 				<input id="switch" type="hidden" name="switch" value="confirm">
 
 				<div>

@@ -64,10 +64,10 @@ public class CallDataController {
 	
 	
 	@RequestMapping(value="registration_back", params="confirm")
-	String inquiry_create_registration(@ModelAttribute("customercallForm") CustomerCallForm customercallForm,  Model model) {
+	String inquiry_create_registration(/*@ModelAttribute("customercallForm") CustomerCallForm customercallForm,*/  Model model) {
 		/*
 		model.addAttribute("uId", uId);*/
-		model.addAttribute("coustomercallForm", customercallForm);
+		// model.addAttribute("coustomercallForm", customercallForm);
 		
 		// 日付・日時取得
 		Calendar cl = Calendar.getInstance();
@@ -76,7 +76,7 @@ public class CallDataController {
 		
 		
 		
-		return "/operation/s-result";
+		return "/operation/client-input-done";
 	}
 	
 }

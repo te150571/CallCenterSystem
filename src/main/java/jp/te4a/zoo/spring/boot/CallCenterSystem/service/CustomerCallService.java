@@ -37,6 +37,9 @@ public class CustomerCallService {
 //	public List<CustomerCallBean> findAllDataByCid(@Param("uId") String uId) {
 //		return customerCallRepository.findAllDataByCid(uId);
 //	}
+	public String getMaxId() {
+		return customerCallRepository.getMaxId();
+	}
 	
 	public String[][] findDataById(@Param("id") String id){
 		return customerCallRepository.findDataById(id);

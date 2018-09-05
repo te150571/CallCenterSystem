@@ -21,6 +21,9 @@ public interface CustomerCallRepository extends JpaRepository<CustomerCallBean, 
 	/*
 	 *  
 	 */
+	@Query(value = "select max(id) from CustomerCallBean")
+	public String getMaxId();
+	
 	@Query(value = "select customer.id as id, cls.name as clsName, customer.contents as contents, customer.date as date"
 			+ " from t_call customer left join t_callclass cls on customer.class_id = cls.id"
 			+ " where customer.id = :id",

@@ -29,7 +29,6 @@
 
 		<form class="client_form rule" name="addcustomer" method="post"
 			th:action="@{/customer/check}" th:object="${customerForm}">
-			<input type="hidden" name="uId" th:value="${uId}">
 
 			<h3>新規顧客登録</h3>
 			<div class="position">
@@ -39,8 +38,8 @@
 							<b>氏名</b>
 						</td>
 						<td class="table_right">
-							<span class="textname1">姓</span><input type="text" class="names" name="lastname" th:value="${customerForm.lastname}" required>
-							<span class="textname1">名</span><input type="text" class="names" name="firstname" th:value="${customerForm.firstname}" required>
+							<span class="textname1">姓</span><input type="text" class="names" required>
+							<span class="textname1">名</span><input type="text" class="names" required>
 						</td>
 					</tr>
 
@@ -49,8 +48,8 @@
 							<b>フリガナ</b>
 						</td>
 						<td class="table_righ">
-							<span class="textname2">セイ</span><input type="text" class="names" name="lastname_kana" th:value="${customerForm.lastname_kana}" required>
-							<span class="textname2">メイ</span><input type="text" class="names" name="firstname_kana" th:value="${customerForm.firstname_kana}" required>
+							<span class="textname2">セイ</span><input type="text" class="names" required>
+							<span class="textname2">メイ</span><input type="text" class="names" required>
 						</td>
 					</tr>
 
@@ -63,16 +62,16 @@
 
 					<tr id="tel_tr">
 						<td class="table_left"><b>電話番号</b></td>
-						<td class="table_right"><input type="text" id="tel" name="tel" th:value="${customerForm.tel}" required></td>
+						<td class="table_right"><input type="text" id="tel" name="tel" required></td>
 					</tr>
 
 					<tr id="addresscode_tr">
 						<td class="table_left" rowspan="2"><b>住所</b></td>
-						<td class="table_right">〒<input type="text" id="addresscode" name="addresscode" th:value="${customerForm.addresscode}" maxlength="7" required>
+						<td class="table_right">〒<input type="text" id="addresscode" name="addresscode" maxlength="7" required>
 						</td>
 					</tr>
 					<tr id="address_tr">
-						<td class="table_right"><textarea id="address" name="address" th:field="${customerForm.address}" required></textarea></td>
+						<td class="table_right"><textarea id="address" name="address" required></textarea></td>
 					</tr>
 				</table>
 

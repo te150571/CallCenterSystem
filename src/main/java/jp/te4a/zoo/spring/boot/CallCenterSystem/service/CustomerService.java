@@ -1,8 +1,11 @@
 package jp.te4a.zoo.spring.boot.CallCenterSystem.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import jp.te4a.zoo.spring.boot.CallCenterSystem.bean.CustomerBean;
@@ -30,11 +33,27 @@ public class CustomerService {
 		return customerForm;
 	}
 	
+	public CustomerForm findById(String cId) {
+		Optional<CustomerBean> customerOpt = customerRepository.findById(cId);
+		CustomerBean customer = customerOpt.orElseThrow(() -> new UsernameNotFoundException("The request user is not found."));
+		CustomerForm customerForm = new CustomerForm();
+		BeanUtils.copyProperties(customer, customerForm);
+		return customerForm;
+	}
+	
 	public String searchCustomerId(String uLastName, String uFirstName, String uTel, String uAdd) {
 		return customerRepository.findCustomerId(uLastName, uFirstName, uTel, uAdd);
 	}
 	
 	public String findNameByUid(@Param("uId") String uId) {
 		return customerRepository.findNameByUid(uId);
+	}
+	
+	/*
+	 * 顧客IDの最大値を取得する
+	 * 戻り値		: 顧客IDの最大値
+	 */
+	public String getMaxId() {
+		return customerRepository.getMaxId();
 	}
 }

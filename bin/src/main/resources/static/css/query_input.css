@@ -60,6 +60,7 @@ table tr td{
 
 #category_check{
     border-color: rgba(255, 255, 255, 0);
+    text-align: center;
 }
 
 textarea{
@@ -82,4 +83,13 @@ td{
 select{
     width: 110px;
     font-weight: bold;
+}
+
+.id_position{
+    top: -35px;
+    font-size: 16.5px;
+}
+
+#select_center{
+    text-align: center;
 }

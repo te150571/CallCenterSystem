@@ -35,6 +35,9 @@ public class CustomerBean {
 	// 名前（漢字）
 	private String firstname;
 	
+	// 郵便番号
+	private String addresscode;
+	
 	// 住所
 	private String address;
 	

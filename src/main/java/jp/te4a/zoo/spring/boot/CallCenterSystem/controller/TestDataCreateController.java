@@ -50,8 +50,8 @@ public class TestDataCreateController {
 		System.out.println("DEBUG:SystemUserCreate. End.");
 		System.out.println("DEBUG:CustomerCreate. Start.");
 		// テスト用顧客データ登録
-		CustomerBean customerBean1 = new CustomerBean("11111111", "てすと", "ゆーざ1", "テスト", "ユーザ1", "住所1", "電話1", "1990/01/01");
-		CustomerBean customerBean2 = new CustomerBean("11111112", "てすと", "ゆーざ2", "テスト", "ユーザ2", "住所2", "電話2", "1995/01/01");
+		CustomerBean customerBean1 = new CustomerBean("11111111", "てすと", "ゆーざ1", "テスト", "ユーザ1", "000-0000", "住所1", "電話1", "1990/01/01");
+		CustomerBean customerBean2 = new CustomerBean("11111112", "てすと", "ゆーざ2", "テスト", "ユーザ2", "000-0000", "住所2", "電話2", "1995/01/01");
 		CustomerForm customerForm = new CustomerForm();
 		BeanUtils.copyProperties(customerBean1, customerForm);
 		customerService.create(customerForm);

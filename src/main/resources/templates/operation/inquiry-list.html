@@ -8,28 +8,31 @@
 	type="text/css">
 <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 </head>
-
 <body>
 	<div class="gradation">
 		<h2>コールセンター顧客管理システム</h2>
-		<div class="id_position">
-			<span id="loggedas">ログイン中： <a id="user_id posi" href="">〇〇〇〇〇<!--ユーザID--></a></span>
-		</div>
-		<form method="post" th:action="@{/logout}">
-			<button type="submit">ログアウト</button>
+		<form name="logoutLink" method="post" th:action="@{/logout}">
+			<div class="id_position">
+				<span id="loggedas">ログイン中： <a id="user_id posi" href="#"
+					th:text="${uId}"> <!--ユーザID-->
+				</a></span> <a class="logout" href="#" onclick="LogoutLink()">ログアウト</a>
+			</div>
 		</form>
 	</div>
 	
 	<div class="main_screen inquiry_screen">
-		<form method="post" th:action="@{/calldata/create}">
-			<div class="client"><span th:text="${customerName}"></span> <span>様</span></div>
-			<div><input type="submit" value="問い合わせ内容登録" class="inquiry_btn btn position1"></div>
-			<input type="hidden" name="cId" th:value="${cId}" />
-		</form>
+		<div class="client">
+			<span th:text="${customerName}"></span> <span>様</span> <span><input type="submit" class="btn inquiry_btn position3" value="検索画面に戻る"/></span>
+		</div>
+		<div>
+			<input type="submit" value="問い合わせ内容登録"
+				class="inquiry_btn btn position1">
+		</div>
 
 		<form method="post" th:action="@{/operation/refine}">
-			<input type="hidden" name="cId" th:value="${cId}" />
-			<input type="hidden" name="customerName" th:value="${customerName}" />
+			<input type="hidden" name="uId" th:value="${uId}"> <input
+				type="hidden" name="cId" th:value="${cId}" /> <input type="hidden"
+				name="customerName" th:value="${customerName}" />
 			<table class="position2">
 				<tr>
 					<td class="day_date_opt">
@@ -56,9 +59,11 @@
 			</table>
 		</form>
 
-		<form name="postdetail" method="post" th:action="@{/operation/details}">
-			<input type="hidden" name="cId" th:value="${cId}" />
-			<input type="hidden" name="customerName" th:value="${customerName}" />
+		<form name="postdetail" method="post"
+			th:action="@{/operation/details}">
+			<input type="hidden" name="uId" th:value="${uId}"> <input
+				type="hidden" name="cId" th:value="${cId}" /> <input type="hidden"
+				name="customerName" th:value="${customerName}" />
 			<div>
 				<table id="table_sort" class="tablesorter" rules="all">
 					<thead>
@@ -73,7 +78,8 @@
 						<tr th:if="${callData} != null" th:each="callData : ${callData}">
 							<td th:text="${callData[1]}"><input type="hidden"
 								name="callId" th:value="${callData[0]}"></td>
-							<td><a th:id="${callData[0]}" href="#" th:text="${callData[2]}" onclick="LinkClick(this)"></a></td>
+							<td><a th:id="${callData[0]}" href="#"
+								th:text="${callData[2]}" onclick="LinkClick(this)"></a></td>
 							<td th:text="${callData[3]}"></td>
 						</tr>
 						<tr th:unless="${callData} != null">
@@ -89,6 +95,13 @@
 	<script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
 
 	<script type="text/javascript">
+		function LogoutLink() {
+			var f = document.forms["logoutLink"];
+			f.method = "POST";
+			f.submit();
+			return true;
+		}
+
 		function LinkClick(ele) {
 			var f = document.forms["postdetail"];
 			var selectedCallId = document.createElement('input');

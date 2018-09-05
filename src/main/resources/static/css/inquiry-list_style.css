@@ -8,13 +8,19 @@
 .position1{
     position: relative;
     top: 80px;
-    left: -300px;
+    left: -350px;
 }
 
 .position2{
     position: relative;
     top: 10px;
     right:-700px;
+}
+
+.position3{
+    position: relative;
+    top: -10px;
+    right:-300px;
 }
 
 .client{

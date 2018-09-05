@@ -27,8 +27,6 @@
 	<div class="main_screen">
 		<form class="client_form rule" name="addcustomer" method="post"
 			th:action="@{/customer/confirm}" th:object="${customerForm}">
-
-			<input type="hidden" name="uId" th:value="${uId}">
 			<!--DBに送信-->
 
 			<h3>新規顧客登録確認</h3>
@@ -47,13 +45,12 @@
 					<tr class="name_tr">
 						<td class="table_left"><b>フリガナ</b></td>
 						<td class="table_righ"><span class="textname2">セイ</span><input
-							type="text" class="names" name="lastname_kana"
+							type="text" name="lastname_kana" class="names"
 							th:value="${customerForm.lastname_kana}" readonly> <span
-							class="textname2">メイ</span><input type="text" class="names"
-							name="firstname_kana" th:value="${customerForm.firstname_kana}"
-							readonly></td>
+							class="textname2">メイ</span><input type="text"
+							name="firstname_kana" class="names"
+							th:value="${customerForm.lastname_kana}" readonly></td>
 					</tr>
-
 
 					<tr id="birthday_tr">
 						<td class="table_left"><b>生年月日</b></td>
@@ -92,7 +89,7 @@
 					<table>
 						<tr>
 							<td class="table_checkbtn"><input class="check_btn btn"
-								type="submit" onclick="redo()" value="戻る"></td>
+								type="submit" onClick="redo()" value="戻る"></td>
 							<td class="table_checkbtn"><input class="check_btn btn"
 								type="submit" value="確定"></td>
 						</tr>
@@ -109,6 +106,7 @@
 		}
 		function LogoutLink() {
 			var f = document.forms["logoutLink"];
+			f.method = "POST";
 			f.submit();
 			return true;
 		}
